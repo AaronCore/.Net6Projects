@@ -1,0 +1,366 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EFCoreWebAPI.Sample</name>
+    </assembly>
+    <members>
+        <member name="T:EFCoreWebAPI.Sample.Controllers.ClassController">
+            <summary>
+            班级
+            </summary>
+        </member>
+        <member name="M:EFCoreWebAPI.Sample.Controllers.ClassController.GetClass">
+            <summary>
+            班级集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFCoreWebAPI.Sample.Controllers.ClassController.GetClass(System.String)">
+            <summary>
+            班级查询
+            </summary>
+            <param name="className">班级名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCoreWebAPI.Sample.Controllers.ClassController.CreateClass(EFCoreWebAPI.Sample.DtoModels.AddOrUpdateClassDto)">
+            <summary>
+            添加班级
+            </summary>
+            <param name="addClass">班级信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCoreWebAPI.Sample.Controllers.ClassController.DelClass(System.Guid)">
+            <summary>
+            班级删除
+            </summary>
+            <param name="classId">班级Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCoreWebAPI.Sample.Controllers.ClassController.UpdateClass(System.Guid,EFCoreWebAPI.Sample.DtoModels.AddOrUpdateClassDto)">
+            <summary>
+            班级修改
+            </summary>
+            <param name="classId">班级Id</param>
+            <param name="updateClass">班级信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.Controllers.CoursesController">
+            <summary>
+            课程
+            </summary>
+        </member>
+        <member name="M:EFCoreWebAPI.Sample.Controllers.CoursesController.GetCourses">
+            <summary>
+            课程集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFCoreWebAPI.Sample.Controllers.CoursesController.GetCourses(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            课程查询
+            </summary>
+            <param name="ids">课程Id集合</param>
+            <returns></returns>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.Controllers.StudentController">
+            <summary>
+            学生
+            </summary>
+        </member>
+        <member name="M:EFCoreWebAPI.Sample.Controllers.StudentController.GetStudents">
+            <summary>
+            学生集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFCoreWebAPI.Sample.Controllers.StudentController.GetStudent(System.Guid)">
+            <summary>
+            获取学生信息
+            </summary>
+            <param name="studentId">学生Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCoreWebAPI.Sample.Controllers.StudentController.CreateStudent(EFCoreWebAPI.Sample.DtoModels.AddOrUpdateStudentDto)">
+            <summary>
+            添加学生
+            </summary>
+            <param name="addStudent">学生信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCoreWebAPI.Sample.Controllers.StudentController.UpdateStudent(System.Guid,EFCoreWebAPI.Sample.DtoModels.AddOrUpdateStudentDto)">
+            <summary>
+            修改学生信息
+            </summary>
+            <param name="studentId">学生Id</param>
+            <param name="updateStudent">学生信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:EFCoreWebAPI.Sample.Controllers.StudentController.DelStudent(System.Guid)">
+            <summary>
+            删除学生
+            </summary>
+            <param name="studentId">学生Id</param>
+            <returns></returns>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.DataContext.DataDbContext">
+            <summary>
+            DbContext
+            </summary>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.DtoModels.ArchiveDto">
+            <summary>
+            档案Dto
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.ArchiveDto.ArchiveId">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.ArchiveDto.ArchiveNo">
+            <summary>
+            档案编号
+            </summary>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.DtoModels.ClassDto">
+            <summary>
+            班级Dto
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.ClassDto.ClassId">
+            <summary>
+            班级Id
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.ClassDto.ClassName">
+            <summary>
+            班级名称
+            </summary>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.DtoModels.AddOrUpdateClassDto">
+            <summary>
+            班级添加、修改Dto
+            </summary>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.DtoModels.CourseDto">
+            <summary>
+            课程Dto
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.CourseDto.CourseId">
+            <summary>
+            课程Id
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.CourseDto.CourseName">
+            <summary>
+            课程名称
+            </summary>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.DtoModels.StudentDto">
+            <summary>
+            学生Dto
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.StudentDto.StudentId">
+            <summary>
+            学生Id
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.StudentDto.StudentNo">
+            <summary>
+            学生编号
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.StudentDto.StudentName">
+            <summary>
+            学生名称
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.StudentDto.Gender">
+            <summary>
+            学生性别
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.StudentDto.DateOfBirth">
+            <summary>
+            学生生日
+            </summary>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.DtoModels.AddOrUpdateStudentDto">
+            <summary>
+            学生添加、修改Dto
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.AddOrUpdateStudentDto.ClassId">
+            <summary>
+            班级Id
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.AddOrUpdateStudentDto.StudentNo">
+            <summary>
+            学生编号
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.AddOrUpdateStudentDto.StudentName">
+            <summary>
+            学生名称
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.AddOrUpdateStudentDto.Gender">
+            <summary>
+            学生性别
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.AddOrUpdateStudentDto.DateOfBirth">
+            <summary>
+            学生生日
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.AddOrUpdateStudentDto.StudentCourseIds">
+            <summary>
+            学生课程
+            </summary>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.DtoModels.StudentCourseDto">
+            <summary>
+            学生课程Dto
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.StudentCourseDto.StudentId">
+            <summary>
+            学生Id
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.DtoModels.StudentCourseDto.CourseId">
+            <summary>
+            课程Id
+            </summary>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.Entitys.Archives">
+            <summary>
+            档案表
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Archives.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Archives.No">
+            <summary>
+            档案编号
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Archives.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Archives.StudentId">
+            <summary>
+            学习信息
+            </summary>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.Entitys.Class">
+            <summary>
+            班级表
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Class.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Class.Name">
+            <summary>
+            班级名称
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Class.Students">
+            <summary>
+            班级学生
+            </summary>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.Entitys.Courses">
+            <summary>
+            课程表
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Courses.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Courses.Name">
+            <summary>
+            课程名称
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Courses.StudentCourses">
+            <summary>
+            课程学生
+            </summary>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.Entitys.StudentCourses">
+            <summary>
+            学生课程表
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.StudentCourses.StudentId">
+            <summary>
+            学生信息
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.StudentCourses.CourseId">
+            <summary>
+            课程信息
+            </summary>
+        </member>
+        <member name="T:EFCoreWebAPI.Sample.Entitys.Students">
+            <summary>
+            学生表
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Students.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Students.No">
+            <summary>
+            学生编号
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Students.Name">
+            <summary>
+            学生姓名
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Students.Gender">
+            <summary>
+            学生性别
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Students.DateOfBirth">
+            <summary>
+            学生生日
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Students.ClassId">
+            <summary>
+            班级
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Students.ArchiveId">
+            <summary>
+            学生档案
+            </summary>
+        </member>
+        <member name="P:EFCoreWebAPI.Sample.Entitys.Students.StudentCourses">
+            <summary>
+            学生课程
+            </summary>
+        </member>
+    </members>
+</doc>

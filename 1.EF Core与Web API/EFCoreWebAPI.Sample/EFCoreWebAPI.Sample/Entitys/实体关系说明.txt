@@ -1,0 +1,14 @@
+﻿Class：班级
+Student：学生
+Archive：档案
+Course：课程
+
+
+1、1对1关系
+一个学生(StudentEntity)对应一个档案信息(ArchiveEntity)。
+
+2、1对多关系
+一个学生(StudentEntity)有所属班级，一个班级(ClassEntity)有多个学生。
+
+3、多对多关系
+一个学生(StudentEntity)可以有多个课程，一个课程(CourseEntity)也有可以有多个学生。
