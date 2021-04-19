@@ -4,6 +4,10 @@
 		<TargetFramework>net5.0</TargetFramework>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <DocumentationFile>F:\.NetProjects\.Net5Projects\1.EF Core与Web API\EFCoreWebAPI.Sample\EFCoreWebAPI.Sample\EFCoreWebAPI.Sample.xml</DocumentationFile>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.4" />
