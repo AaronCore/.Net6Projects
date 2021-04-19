@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "8pdYc5zion75VfvOpr4iWwCDSPT9/kzMI4HQsMxY52j+mONO/bu6w4cO61yOndws0HatfkT/zWCZsKBxJik/1A==",
+  "success": true,
+  "projectFilePath": "F:\\.NetProjects\\.Net5Projects\\1.EF Core与Web API\\EFCoreWebAPI.Sample\\EFCoreWebAPI.Sample\\EFCoreWebAPI.Sample.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\CFG\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\CFG\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\CFG\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\CFG\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\CFG\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\CFG\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
