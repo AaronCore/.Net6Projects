@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+import "google/protobuf/empty.proto";
+
+// 定义包名
+package Speak;
+
+//定义服务
+service Speak {
+	//定义方法
+	//说话方法
+	rpc SpeakL(google.protobuf.Empty) returns(SpeakResult);
+	//定义聊天双向流rpc
+	rpc Chat(stream ChatRequest) returns(stream ChatResponse);
+	//定义统计简单rpc
+	rpc Count(google.protobuf.Empty) returns (CountResult);
+}
+
+message SpeakResult{
+    string message=1;
+}
+
+message ChatRequest {
+  int32 id = 1;
+}
+message ChatResponse {
+  string message = 1;
+}
+
+message CountResult{
+    int32 Count=1;
+}

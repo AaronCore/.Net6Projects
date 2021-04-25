@@ -361,3 +361,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /6.RPC/RabbitMQ.Sample/packages
+/8.Common/Common/packages
