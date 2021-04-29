@@ -362,3 +362,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /6.RPC/RabbitMQ.Sample/packages
 /8.Common/Common/packages
+/3.Nosql/Mongodb.Sample/packages
