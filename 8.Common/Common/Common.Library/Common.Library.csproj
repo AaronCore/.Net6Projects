@@ -61,6 +61,8 @@
     <Compile Include="CookieHelper.cs" />
     <Compile Include="DateTimeHelper.cs" />
     <Compile Include="DirFile.cs" />
+    <Compile Include="Email\EmailHelper.cs" />
+    <Compile Include="Email\EmailSender.cs" />
     <Compile Include="EnumHelper.cs" />
     <Compile Include="HashEncode.cs" />
     <Compile Include="ImageHelper.cs" />
@@ -85,5 +87,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
