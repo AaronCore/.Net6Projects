@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31229.75
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zookeeper.Sample", "Zookeeper.Sample\Zookeeper.Sample.csproj", "{357EC5A7-E38C-4822-B03A-19690D97E0BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZookeeperLocker.Sample", "ZookeeperLocker.Sample\ZookeeperLocker.Sample.csproj", "{35153522-0EB7-41B3-B7D2-A316DF4C2A20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{357EC5A7-E38C-4822-B03A-19690D97E0BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{357EC5A7-E38C-4822-B03A-19690D97E0BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{357EC5A7-E38C-4822-B03A-19690D97E0BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{357EC5A7-E38C-4822-B03A-19690D97E0BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35153522-0EB7-41B3-B7D2-A316DF4C2A20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35153522-0EB7-41B3-B7D2-A316DF4C2A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35153522-0EB7-41B3-B7D2-A316DF4C2A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35153522-0EB7-41B3-B7D2-A316DF4C2A20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2BECDFCA-5475-4C00-9D9B-39FEC8F69519}
+	EndGlobalSection
+EndGlobal
