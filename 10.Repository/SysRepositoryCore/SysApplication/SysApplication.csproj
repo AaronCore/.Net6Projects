@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SysCommon\SysCommon.csproj" />
+    <ProjectReference Include="..\SysEntity\SysEntity.csproj" />
+    <ProjectReference Include="..\SysRepository\SysRepository.csproj" />
+  </ItemGroup>
+
+</Project>

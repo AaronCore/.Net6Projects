@@ -1,0 +1,7 @@
+1. Enable-Migrations		(创建迁移目录：Migrations,如果有多个数据上下文可以用 -ContextTypeName  命令迁移对应的数据上下文　)
+2. Add-Migration		(创建一个迁移文件)
+3. update-database     	(启动迁移，生成数据库)
+4. install-package entityframework	(初始化配置包)
+5. Update-Database -Script -SourceMigration:"  " -TargetMigration:" " 		(生成数据库版本之间的Sql脚本,正式区换版时有用)
+6.Update-Database –TargetMigration:"  "  		(进行数据库版本回溯)
+7.Update-Database –TargetMigration: $InitialDatabase -Script 		(回到初始状态)

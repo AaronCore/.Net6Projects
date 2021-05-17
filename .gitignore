@@ -364,3 +364,4 @@ FodyWeavers.xsd
 /8.Common/Common/packages
 /3.Nosql/Mongodb.Sample/packages
 /9.Tools/ToolGood.Words.Sample/packages
+/10.Repository/SysRepository/packages
