@@ -1,26 +1,51 @@
-using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using IdentityServer4;
 
-namespace Id4Quickstart
+namespace OAuth.IdentityServer4.Quickstart
 {
     public class Startup
     {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
             services.AddControllers();
 
-            services.AddIdentityServer()
+            services.AddIdentityServer(setup =>
+                {
+                    setup.Events.RaiseErrorEvents = true;
+                    setup.Events.RaiseInformationEvents = true;
+                    setup.Events.RaiseFailureEvents = true;
+                    setup.Events.RaiseSuccessEvents = true;
+
+                    // see https://identityserver4.readthedocs.io/en/latest/topics/resources.html
+                    setup.EmitStaticAudienceClaim = true;
+                })
                 .AddDeveloperSigningCredential() // 开发环境
                 .AddTestUsers(Config.Users().ToList())
                 .AddInMemoryClients(Config.Clients)
                 .AddInMemoryApiScopes(Config.ApiScopes);
+
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+
+                    // register your IdentityServer with Google at https://console.developers.google.com
+                    // enable the Google+ API
+                    // set the redirect URI to https://localhost:5001/signin-google
+                    options.ClientId = "copy client ID from Google here";
+                    options.ClientSecret = "copy client secret from Google here";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +60,8 @@ namespace Id4Quickstart
             app.UseRouting();
 
             app.UseIdentityServer();
+
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

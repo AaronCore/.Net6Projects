@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Id4Server
+namespace OAuth.IdentityServer4.Quickstart
 {
     public class Program
     {

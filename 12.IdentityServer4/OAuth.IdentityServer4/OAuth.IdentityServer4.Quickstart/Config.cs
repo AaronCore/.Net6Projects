@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
 
-namespace Id4Server
+namespace OAuth.IdentityServer4.Quickstart
 {
     /// <summary>
     /// IdentityServer4配置
