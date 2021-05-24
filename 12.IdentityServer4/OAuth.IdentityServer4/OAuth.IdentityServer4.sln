@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth.IdentityServer4.Quickstart", "OAuth.IdentityServer4.Quickstart\OAuth.IdentityServer4.Quickstart.csproj", "{1AFA48E3-4718-4F50-B6C6-5912F9ADD8E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OAuth.IdentityServer4.Quickstart", "OAuth.IdentityServer4.Quickstart\OAuth.IdentityServer4.Quickstart.csproj", "{1AFA48E3-4718-4F50-B6C6-5912F9ADD8E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientCredentials", "ClientCredentials", "{2921C525-0D78-442D-9601-66EB64C1156C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
