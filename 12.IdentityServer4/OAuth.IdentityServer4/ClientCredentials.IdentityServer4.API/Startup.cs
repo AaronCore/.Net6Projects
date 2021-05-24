@@ -16,6 +16,16 @@ namespace ClientCredentials.IdentityServer4.API
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+            services.AddAuthorization();
+
+            // 身份认证
+            services.AddAuthentication("Bearer").AddIdentityServerAuthentication(setup =>
+            {
+                setup.Authority = "http://localhost:5110";
+                setup.RequireHttpsMetadata = false;
+                setup.ApiName = "api1";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -28,12 +38,12 @@ namespace ClientCredentials.IdentityServer4.API
 
             app.UseRouting();
 
+            app.UseAuthentication(); // 身份认证
+            app.UseAuthorization();  // 授权
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
