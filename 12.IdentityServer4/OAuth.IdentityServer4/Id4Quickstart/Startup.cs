@@ -1,15 +1,10 @@
+using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using IdentityServer4.Extensions;
 
-namespace Id4Server
+namespace Id4Quickstart
 {
     public class Startup
     {
@@ -18,24 +13,14 @@ namespace Id4Server
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            services.AddAuthorization();
+            services.AddMvc();
+            services.AddControllers();
 
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential() // 开发环境
                 .AddTestUsers(Config.Users().ToList())
                 .AddInMemoryClients(Config.Clients)
                 .AddInMemoryApiScopes(Config.ApiScopes);
-
-
-            services.AddAuthentication("Bearer")
-                .AddIdentityServerAuthentication(option =>
-                {
-                    option.Authority = "";
-                    option.RequireHttpsMetadata = false;
-                    option.ApiName = "api1";
-                });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,19 +31,14 @@ namespace Id4Server
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             app.UseRouting();
-
-            app.UseAuthentication(); // 认证
-            app.UseAuthorization();  // 授权
 
             app.UseIdentityServer();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
