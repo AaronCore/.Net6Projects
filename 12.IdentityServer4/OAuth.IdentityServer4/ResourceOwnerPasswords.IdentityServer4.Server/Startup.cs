@@ -16,6 +16,13 @@ namespace ResourceOwnerPasswords.IdentityServer4.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddIdentityServer()
+                .AddInMemoryIdentityResources(Config.IdentityResources)
+                .AddInMemoryApiScopes(Config.ApiScopes)
+                .AddInMemoryApiResources(Config.ApiResources)
+                .AddInMemoryClients(Config.Clients)
+                .AddTestUsers(TestUsers.Users)
+                .AddDeveloperSigningCredential();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,6 +34,8 @@ namespace ResourceOwnerPasswords.IdentityServer4.Server
             }
 
             app.UseRouting();
+
+            app.UseIdentityServer();
 
             app.UseEndpoints(endpoints =>
             {

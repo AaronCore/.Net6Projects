@@ -1,12 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ResourceOwnerPasswords.IdentityServer4.API
 {
@@ -16,6 +11,16 @@ namespace ResourceOwnerPasswords.IdentityServer4.API
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
+            services.AddAuthorization();
+
+            services.AddAuthentication("Bearer").AddIdentityServerAuthentication(setup =>
+            {
+                setup.Authority = "http://localhost:5001";
+                setup.RequireHttpsMetadata = false;
+                setup.ApiName = "api1";
+                setup.ApiSecret = "apipassword"; // 对应ApiResources中的密钥
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -28,12 +33,12 @@ namespace ResourceOwnerPasswords.IdentityServer4.API
 
             app.UseRouting();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
