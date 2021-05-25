@@ -12,8 +12,9 @@ namespace ResourceOwnerPasswords.IdentityServer4.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddAuthorization();
+            services.AddAuthorization(); // 授权
 
+            // 身份认证
             services.AddAuthentication("Bearer").AddIdentityServerAuthentication(setup =>
             {
                 setup.Authority = "http://localhost:5001";
@@ -33,8 +34,8 @@ namespace ResourceOwnerPasswords.IdentityServer4.API
 
             app.UseRouting();
 
-            app.UseAuthentication();
-            app.UseAuthorization();
+            app.UseAuthentication(); // 身份认证
+            app.UseAuthorization();  // 授权
 
             app.UseEndpoints(endpoints =>
             {

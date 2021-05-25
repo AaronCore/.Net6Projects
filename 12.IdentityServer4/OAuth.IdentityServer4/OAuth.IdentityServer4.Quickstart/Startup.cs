@@ -31,6 +31,7 @@ namespace OAuth.IdentityServer4.Quickstart
                 .AddInMemoryClients(Config.Clients)
                 .AddInMemoryApiScopes(Config.ApiScopes);
 
+            // 身份认证
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {
@@ -57,6 +58,7 @@ namespace OAuth.IdentityServer4.Quickstart
 
             app.UseIdentityServer();
 
+            // 授权
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

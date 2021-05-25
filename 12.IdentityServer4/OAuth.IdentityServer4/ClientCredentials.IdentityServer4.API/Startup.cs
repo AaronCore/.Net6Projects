@@ -12,6 +12,7 @@ namespace ClientCredentials.IdentityServer4.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            // 授权
             services.AddAuthorization();
 
             // 身份认证
