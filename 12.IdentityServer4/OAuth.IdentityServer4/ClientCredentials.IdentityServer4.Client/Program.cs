@@ -12,7 +12,7 @@ namespace ClientCredentials.IdentityServer4.Client
         {
             // discovery endpoint
             var client = new HttpClient();
-            var disco = await client.GetDiscoveryDocumentAsync("http://localhost:5110/");
+            var disco = await client.GetDiscoveryDocumentAsync("http://localhost:5001/");
 
             if (disco.IsError)
             {
@@ -38,7 +38,7 @@ namespace ClientCredentials.IdentityServer4.Client
             // call Identity Resource API
             var apiClient = new HttpClient();
             apiClient.SetBearerToken(tokenResponse.AccessToken);
-            var response = await apiClient.GetAsync("http://localhost:5120/Identity/GetUserClaims");
+            var response = await apiClient.GetAsync("http://localhost:5002/Identity/GetUserClaims");
             if (!response.IsSuccessStatusCode)
             {
                 Console.WriteLine(response.StatusCode);

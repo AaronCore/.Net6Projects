@@ -22,7 +22,7 @@ namespace ClientCredentials.IdentityServer4.API
             // 身份认证
             services.AddAuthentication("Bearer").AddIdentityServerAuthentication(setup =>
             {
-                setup.Authority = "http://localhost:5110";
+                setup.Authority = "http://localhost:5001";
                 setup.RequireHttpsMetadata = false;
                 setup.ApiName = "api1";
             });
