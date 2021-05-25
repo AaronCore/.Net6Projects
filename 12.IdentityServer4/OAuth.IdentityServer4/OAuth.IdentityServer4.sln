@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OAuth.IdentityServer4.Quickstart", "OAuth.IdentityServer4.Quickstart\OAuth.IdentityServer4.Quickstart.csproj", "{1AFA48E3-4718-4F50-B6C6-5912F9ADD8E6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientCredentials", "ClientCredentials", "{2921C525-0D78-442D-9601-66EB64C1156C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "客户端凭证模式(ClientCredentials)", "客户端凭证模式(ClientCredentials)", "{2921C525-0D78-442D-9601-66EB64C1156C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientCredentials.IdentityServer4.Server", "ClientCredentials.IdentityServer4.Server\ClientCredentials.IdentityServer4.Server.csproj", "{FE61006C-E011-4FBE-8BF1-C3A61667B962}"
 EndProject
@@ -13,13 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientCredentials.IdentityS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientCredentials.IdentityServer4.Client", "ClientCredentials.IdentityServer4.Client\ClientCredentials.IdentityServer4.Client.csproj", "{538F3981-8B2B-49EB-91F5-3296171F9DF3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResourceOwnerPasswords", "ResourceOwnerPasswords", "{FB2AA6AE-921D-4FF4-B75E-626A8AC4E02C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "资源密码凭证模式(ResourceOwnerPasswords)", "资源密码凭证模式(ResourceOwnerPasswords)", "{FB2AA6AE-921D-4FF4-B75E-626A8AC4E02C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceOwnerPasswords.IdentityServer4.Server", "ResourceOwnerPasswords.IdentityServer4.Server\ResourceOwnerPasswords.IdentityServer4.Server.csproj", "{8D15F1E5-4C7D-4F69-89E5-9B8B647F77A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResourceOwnerPasswords.IdentityServer4.Server", "ResourceOwnerPasswords.IdentityServer4.Server\ResourceOwnerPasswords.IdentityServer4.Server.csproj", "{8D15F1E5-4C7D-4F69-89E5-9B8B647F77A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceOwnerPasswords.IdentityServer4.API", "ResourceOwnerPasswords.IdentityServer4.API\ResourceOwnerPasswords.IdentityServer4.API.csproj", "{BAAA714E-66D0-46CE-BB48-3A2CB575192E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResourceOwnerPasswords.IdentityServer4.API", "ResourceOwnerPasswords.IdentityServer4.API\ResourceOwnerPasswords.IdentityServer4.API.csproj", "{BAAA714E-66D0-46CE-BB48-3A2CB575192E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceOwnerPasswords.IdentityServer4.Client", "ResourceOwnerPasswords.IdentityServer4.Client\ResourceOwnerPasswords.IdentityServer4.Client.csproj", "{548C2BD7-D812-4E6F-A9A8-EF0BA59A96EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResourceOwnerPasswords.IdentityServer4.Client", "ResourceOwnerPasswords.IdentityServer4.Client\ResourceOwnerPasswords.IdentityServer4.Client.csproj", "{548C2BD7-D812-4E6F-A9A8-EF0BA59A96EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
