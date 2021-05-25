@@ -35,6 +35,9 @@ namespace ClientCredentials.IdentityServer4.Client
                 return;
             }
 
+            Console.WriteLine(tokenResponse.Json);
+            Console.WriteLine("\n\n");
+
             // call Identity Resource API
             var apiClient = new HttpClient();
             apiClient.SetBearerToken(tokenResponse.AccessToken);

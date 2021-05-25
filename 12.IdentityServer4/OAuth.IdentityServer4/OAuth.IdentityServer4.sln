@@ -7,11 +7,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OAuth.IdentityServer4.Quick
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientCredentials", "ClientCredentials", "{2921C525-0D78-442D-9601-66EB64C1156C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientCredentials.IdentityServer4.Server", "ClientCredentials.IdentityServer4.Server\ClientCredentials.IdentityServer4.Server.csproj", "{FE61006C-E011-4FBE-8BF1-C3A61667B962}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientCredentials.IdentityServer4.Server", "ClientCredentials.IdentityServer4.Server\ClientCredentials.IdentityServer4.Server.csproj", "{FE61006C-E011-4FBE-8BF1-C3A61667B962}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientCredentials.IdentityServer4.API", "ClientCredentials.IdentityServer4.API\ClientCredentials.IdentityServer4.API.csproj", "{10DA675D-748F-4B21-BFD9-E80656F05FA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientCredentials.IdentityServer4.API", "ClientCredentials.IdentityServer4.API\ClientCredentials.IdentityServer4.API.csproj", "{10DA675D-748F-4B21-BFD9-E80656F05FA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientCredentials.IdentityServer4.Client", "ClientCredentials.IdentityServer4.Client\ClientCredentials.IdentityServer4.Client.csproj", "{538F3981-8B2B-49EB-91F5-3296171F9DF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientCredentials.IdentityServer4.Client", "ClientCredentials.IdentityServer4.Client\ClientCredentials.IdentityServer4.Client.csproj", "{538F3981-8B2B-49EB-91F5-3296171F9DF3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResourceOwnerPasswords", "ResourceOwnerPasswords", "{FB2AA6AE-921D-4FF4-B75E-626A8AC4E02C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceOwnerPasswords.IdentityServer4.Server", "ResourceOwnerPasswords.IdentityServer4.Server\ResourceOwnerPasswords.IdentityServer4.Server.csproj", "{8D15F1E5-4C7D-4F69-89E5-9B8B647F77A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceOwnerPasswords.IdentityServer4.API", "ResourceOwnerPasswords.IdentityServer4.API\ResourceOwnerPasswords.IdentityServer4.API.csproj", "{BAAA714E-66D0-46CE-BB48-3A2CB575192E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceOwnerPasswords.IdentityServer4.Client", "ResourceOwnerPasswords.IdentityServer4.Client\ResourceOwnerPasswords.IdentityServer4.Client.csproj", "{548C2BD7-D812-4E6F-A9A8-EF0BA59A96EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +43,18 @@ Global
 		{538F3981-8B2B-49EB-91F5-3296171F9DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{538F3981-8B2B-49EB-91F5-3296171F9DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{538F3981-8B2B-49EB-91F5-3296171F9DF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D15F1E5-4C7D-4F69-89E5-9B8B647F77A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D15F1E5-4C7D-4F69-89E5-9B8B647F77A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D15F1E5-4C7D-4F69-89E5-9B8B647F77A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D15F1E5-4C7D-4F69-89E5-9B8B647F77A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAAA714E-66D0-46CE-BB48-3A2CB575192E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAAA714E-66D0-46CE-BB48-3A2CB575192E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAAA714E-66D0-46CE-BB48-3A2CB575192E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAAA714E-66D0-46CE-BB48-3A2CB575192E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{548C2BD7-D812-4E6F-A9A8-EF0BA59A96EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{548C2BD7-D812-4E6F-A9A8-EF0BA59A96EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{548C2BD7-D812-4E6F-A9A8-EF0BA59A96EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{548C2BD7-D812-4E6F-A9A8-EF0BA59A96EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +63,9 @@ Global
 		{FE61006C-E011-4FBE-8BF1-C3A61667B962} = {2921C525-0D78-442D-9601-66EB64C1156C}
 		{10DA675D-748F-4B21-BFD9-E80656F05FA9} = {2921C525-0D78-442D-9601-66EB64C1156C}
 		{538F3981-8B2B-49EB-91F5-3296171F9DF3} = {2921C525-0D78-442D-9601-66EB64C1156C}
+		{8D15F1E5-4C7D-4F69-89E5-9B8B647F77A7} = {FB2AA6AE-921D-4FF4-B75E-626A8AC4E02C}
+		{BAAA714E-66D0-46CE-BB48-3A2CB575192E} = {FB2AA6AE-921D-4FF4-B75E-626A8AC4E02C}
+		{548C2BD7-D812-4E6F-A9A8-EF0BA59A96EE} = {FB2AA6AE-921D-4FF4-B75E-626A8AC4E02C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F1A395E3-2D54-4063-9960-027E5F28DC2C}
