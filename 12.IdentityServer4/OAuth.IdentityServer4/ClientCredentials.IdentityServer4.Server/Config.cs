@@ -38,7 +38,7 @@ namespace ClientCredentials.IdentityServer4.Server
             {
                 // 客户端的标识，要是唯一的
                 ClientId = "D521A185-77D6-2959-7487-E3587BBE8D85",
-                ClientName = "client_scope1",
+                ClientName = "Client Credentials Client",
                 // 授权方式，这里采用的是客户端认证模式，只要ClientId，以及ClientSecrets正确即可访问对应的AllowedScopes里面的api资源
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 // 客户端密码，进行了加密
