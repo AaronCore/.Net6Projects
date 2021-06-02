@@ -43,6 +43,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HybridFlow.IdentityServer4.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HybridFlow.IdentityServer4.Mvc", "HybridFlow.IdentityServer4.Mvc\HybridFlow.IdentityServer4.Mvc.csproj", "{F3E5CF7B-E23B-48A7-8F18-11278E64A3CF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFrameworkStorage", "EntityFrameworkStorage", "{6B9D3EE7-2FA5-4031-A7D7-DF27073AEC36}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkStorage.IdentityServer4.EF", "EntityFrameworkStorage.IdentityServer4.EF\EntityFrameworkStorage.IdentityServer4.EF.csproj", "{54FA532D-A3BF-4EC1-85FB-9F31334A1FC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +113,10 @@ Global
 		{F3E5CF7B-E23B-48A7-8F18-11278E64A3CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3E5CF7B-E23B-48A7-8F18-11278E64A3CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3E5CF7B-E23B-48A7-8F18-11278E64A3CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54FA532D-A3BF-4EC1-85FB-9F31334A1FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54FA532D-A3BF-4EC1-85FB-9F31334A1FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54FA532D-A3BF-4EC1-85FB-9F31334A1FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54FA532D-A3BF-4EC1-85FB-9F31334A1FC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -128,6 +136,7 @@ Global
 		{D2CD9EEA-32A4-421C-8309-2BB9D140F409} = {C1C9227E-69F5-4135-8A78-0A25426AB1A4}
 		{0CC960DB-7A33-4ADC-B37F-D2486618D098} = {C1C9227E-69F5-4135-8A78-0A25426AB1A4}
 		{F3E5CF7B-E23B-48A7-8F18-11278E64A3CF} = {C1C9227E-69F5-4135-8A78-0A25426AB1A4}
+		{54FA532D-A3BF-4EC1-85FB-9F31334A1FC8} = {6B9D3EE7-2FA5-4031-A7D7-DF27073AEC36}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F1A395E3-2D54-4063-9960-027E5F28DC2C}
