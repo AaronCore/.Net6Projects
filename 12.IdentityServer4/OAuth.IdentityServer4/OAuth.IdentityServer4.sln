@@ -23,9 +23,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResourceOwnerPasswords.Iden
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "简化模式(ImplicitGrantType)", "简化模式(ImplicitGrantType)", "{7C186F7A-FD36-47A8-8C75-014457D2C094}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImplicitGrantType.IdentityServer4.Server", "ImplicitGrantType.IdentityServer4.Server\ImplicitGrantType.IdentityServer4.Server.csproj", "{DC9E799F-CE70-4060-A877-49A59F27E072}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImplicitGrantType.IdentityServer4.Server", "ImplicitGrantType.IdentityServer4.Server\ImplicitGrantType.IdentityServer4.Server.csproj", "{DC9E799F-CE70-4060-A877-49A59F27E072}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImplicitGrantType.IdentityServer4.Mvc", "ImplicitGrantType.IdentityServer4.Mvc\ImplicitGrantType.IdentityServer4.Mvc.csproj", "{69F2EB00-3FCA-438A-80D5-FE922752C7E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImplicitGrantType.IdentityServer4.Mvc", "ImplicitGrantType.IdentityServer4.Mvc\ImplicitGrantType.IdentityServer4.Mvc.csproj", "{69F2EB00-3FCA-438A-80D5-FE922752C7E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "授权码模式(AuthorizationCode)", "授权码模式(AuthorizationCode)", "{25023375-352A-432A-8F11-448D65D82FBD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthorizationCode.IdentityServer4.Server", "AuthorizationCode.IdentityServer4.Server\AuthorizationCode.IdentityServer4.Server.csproj", "{6B14E15C-7382-43A8-855D-14B8E610F3FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthorizationCode.IdentityServer4.API", "AuthorizationCode.IdentityServer4.API\AuthorizationCode.IdentityServer4.API.csproj", "{44C7B761-00AC-4298-8389-2D0644284605}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthorizationCode.IdentityServer4.Mvc", "AuthorizationCode.IdentityServer4.MVC\AuthorizationCode.IdentityServer4.Mvc.csproj", "{858CF849-F102-4F11-9995-89C43FFBCD95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +77,18 @@ Global
 		{69F2EB00-3FCA-438A-80D5-FE922752C7E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69F2EB00-3FCA-438A-80D5-FE922752C7E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69F2EB00-3FCA-438A-80D5-FE922752C7E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B14E15C-7382-43A8-855D-14B8E610F3FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B14E15C-7382-43A8-855D-14B8E610F3FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B14E15C-7382-43A8-855D-14B8E610F3FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B14E15C-7382-43A8-855D-14B8E610F3FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44C7B761-00AC-4298-8389-2D0644284605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44C7B761-00AC-4298-8389-2D0644284605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44C7B761-00AC-4298-8389-2D0644284605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44C7B761-00AC-4298-8389-2D0644284605}.Release|Any CPU.Build.0 = Release|Any CPU
+		{858CF849-F102-4F11-9995-89C43FFBCD95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{858CF849-F102-4F11-9995-89C43FFBCD95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{858CF849-F102-4F11-9995-89C43FFBCD95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{858CF849-F102-4F11-9995-89C43FFBCD95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +102,9 @@ Global
 		{548C2BD7-D812-4E6F-A9A8-EF0BA59A96EE} = {FB2AA6AE-921D-4FF4-B75E-626A8AC4E02C}
 		{DC9E799F-CE70-4060-A877-49A59F27E072} = {7C186F7A-FD36-47A8-8C75-014457D2C094}
 		{69F2EB00-3FCA-438A-80D5-FE922752C7E9} = {7C186F7A-FD36-47A8-8C75-014457D2C094}
+		{6B14E15C-7382-43A8-855D-14B8E610F3FC} = {25023375-352A-432A-8F11-448D65D82FBD}
+		{44C7B761-00AC-4298-8389-2D0644284605} = {25023375-352A-432A-8F11-448D65D82FBD}
+		{858CF849-F102-4F11-9995-89C43FFBCD95} = {25023375-352A-432A-8F11-448D65D82FBD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F1A395E3-2D54-4063-9960-027E5F28DC2C}
