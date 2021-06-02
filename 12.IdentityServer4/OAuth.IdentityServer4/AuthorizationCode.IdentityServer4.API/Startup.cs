@@ -91,7 +91,10 @@ namespace AuthorizationCode.IdentityServer4.API
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapGet("/", async context =>
+                {
+                    await context.Response.WriteAsync("Hello AuthorizationCode.IdentityServer4.API!");
+                });
             });
         }
     }

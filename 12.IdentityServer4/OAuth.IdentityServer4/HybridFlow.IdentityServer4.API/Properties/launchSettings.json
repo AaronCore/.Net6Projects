@@ -1,0 +1,12 @@
+﻿{
+  "profiles": {
+    "HybridFlow.IdentityServer4.API": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5002",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 ﻿{
   "profiles": {
-    "AuthorizationCode.IdentityServer4.MVC": {
+    "AuthorizationCode.IdentityServer4.Mvc": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
