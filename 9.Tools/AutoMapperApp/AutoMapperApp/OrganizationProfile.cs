@@ -12,10 +12,10 @@ namespace AutoMapperApp
         public OrganizationProfile()
         {
             CreateMap<UserEntity, UserDto>()
-                .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Name))
-                .ReverseMap()
-                ;
+                  .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.Id))
+                  .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Name))
+                  .ReverseMap()
+                  ;
         }
     }
 }
