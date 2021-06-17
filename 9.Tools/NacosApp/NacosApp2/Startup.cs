@@ -40,6 +40,18 @@ namespace NacosApp2
                 x.ConfigUseRpc = true;
             });
 
+            services.AddNacosV2Naming(x =>
+            {
+                x.ServerAddresses = new List<string> { "http://localhost:8848/" };
+                x.Namespace = "00446a46-3b10-4765-8534-6c32e0f84945";
+                x.UserName = "nacos";
+                x.Password = "nacos";
+                x.EndPoint = "";
+
+                // swich to use http or rpc
+                x.NamingUseRpc = true;
+            });
+
             services.AddControllersWithViews();
         }
 

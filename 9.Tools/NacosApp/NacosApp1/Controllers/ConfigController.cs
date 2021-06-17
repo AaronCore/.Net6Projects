@@ -24,14 +24,14 @@ namespace NacosApp1.Controllers
             IConfiguration configuration,
             IOptions<AppSettings> options,
             IOptionsSnapshot<AppSettings> sOptions,
-            IOptionsMonitor<AppSettings> _mOptions
+            IOptionsMonitor<AppSettings> mOptions
         )
         {
             _logger = logger;
             _configuration = configuration;
             _settings = options.Value;
             _sSettings = sOptions.Value;
-            _mSettings = _mOptions.CurrentValue;
+            _mSettings = mOptions.CurrentValue;
         }
 
         [HttpGet]
