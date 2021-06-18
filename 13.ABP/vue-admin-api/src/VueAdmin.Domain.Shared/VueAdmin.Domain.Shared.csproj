@@ -3,12 +3,12 @@
 	<Import Project="..\..\common.props" />
 
 	<PropertyGroup>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<TargetFramework>net5.0</TargetFramework>
 		<RootNamespace>VueAdmin.Domain.Shared</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="3.1.2" />
+		<PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="4.3.3" />
 	</ItemGroup>
 
 </Project>

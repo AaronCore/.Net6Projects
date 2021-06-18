@@ -3,7 +3,7 @@
 	<Import Project="..\..\common.props" />
 
 	<PropertyGroup>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<TargetFramework>net5.0</TargetFramework>
 		<RootNamespace>VueAdmin.HttpApi.Host</RootNamespace>
 		<PreserveCompilationReferences>true</PreserveCompilationReferences>
 		<UserSecretsId>VueAdmin-4681b4fd-151f-4221-84a4-929d86723e4c</UserSecretsId>
@@ -17,9 +17,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.8" />
-		<PackageReference Include="Volo.Abp.Autofac" Version="3.1.2" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.7" />
+		<PackageReference Include="Volo.Abp.Autofac" Version="4.3.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.7">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>

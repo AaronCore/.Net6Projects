@@ -3,7 +3,7 @@
 	<Import Project="..\..\common.props" />
 
 	<PropertyGroup>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<TargetFramework>net5.0</TargetFramework>
 		<RootNamespace>VueAdmin.HttpApi</RootNamespace>
 	</PropertyGroup>
 
@@ -17,7 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Volo.Abp.Identity.HttpApi" Version="3.1.2" />
+		<PackageReference Include="Volo.Abp.Identity.HttpApi" Version="4.3.3" />
 	</ItemGroup>
 
 </Project>
