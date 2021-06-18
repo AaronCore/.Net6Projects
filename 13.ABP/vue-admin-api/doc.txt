@@ -1,0 +1,6 @@
+1.添加类库命令
+https://docs.microsoft.com/zh-cn/dotnet/core/tools/dotnet-new
+
+dotnet new classlib -f netcoreapp3.1 -o  VueAdmin.Application.Caching
+
+2.

@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VueAdmin.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:VueAdmin.Domain.Configurations.AppSettings">
+            <summary>
+            appsettings.json配置文件数据读取类
+            </summary>
+        </member>
+        <member name="F:VueAdmin.Domain.Configurations.AppSettings._config">
+            <summary>
+            配置文件的根节点
+            </summary>
+        </member>
+        <member name="M:VueAdmin.Domain.Configurations.AppSettings.#cctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Configurations.AppSettings.ApiVersion">
+            <summary>
+            ApiVersion
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Configurations.AppSettings.ConnectionStrings">
+            <summary>
+            ConnectionStrings
+            </summary>
+        </member>
+        <member name="T:VueAdmin.Domain.Configurations.AppSettings.RabbitMQ">
+            <summary>
+            RabbitMQ
+            </summary>
+        </member>
+        <member name="T:VueAdmin.Domain.Configurations.AppSettings.GitHub">
+            <summary>
+            GitHub
+            </summary>
+        </member>
+        <member name="T:VueAdmin.Domain.Configurations.AppSettings.JWT">
+            <summary>
+            JWT
+            </summary>
+        </member>
+        <member name="T:VueAdmin.Domain.Configurations.AppSettings.Caching">
+            <summary>
+            Caching
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Configurations.AppSettings.Caching.RedisConnectionString">
+            <summary>
+            RedisConnectionString
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Configurations.AppSettings.Caching.IsOpen">
+            <summary>
+            是否开启
+            </summary>
+        </member>
+        <member name="T:VueAdmin.Domain.Configurations.AppSettings.Hangfire">
+            <summary>
+            Hangfire
+            </summary>
+        </member>
+        <member name="T:VueAdmin.Domain.Configurations.AppSettings.Email">
+            <summary>
+            Email配置
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Configurations.AppSettings.Email.Host">
+            <summary>
+            Host
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Configurations.AppSettings.Email.Port">
+            <summary>
+            Port
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Configurations.AppSettings.Email.UseSsl">
+            <summary>
+            UseSsl
+            </summary>
+        </member>
+        <member name="T:VueAdmin.Domain.Configurations.AppSettings.Email.From">
+            <summary>
+            From
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Configurations.AppSettings.Email.From.Username">
+            <summary>
+            Username
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Configurations.AppSettings.Email.From.Password">
+            <summary>
+            Password
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Configurations.AppSettings.Email.From.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Configurations.AppSettings.Email.From.Address">
+            <summary>
+            Address
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Configurations.AppSettings.Email.To">
+            <summary>
+            To
+            </summary>
+        </member>
+        <member name="F:VueAdmin.Domain.Configurations.GitHubConfig.API_Authorize">
+            <summary>
+            GET请求，跳转GitHub登录界面，获取用户授权，得到code
+            </summary>
+        </member>
+        <member name="F:VueAdmin.Domain.Configurations.GitHubConfig.API_AccessToken">
+            <summary>
+            POST请求，根据code得到access_token
+            </summary>
+        </member>
+        <member name="F:VueAdmin.Domain.Configurations.GitHubConfig.API_User">
+            <summary>
+            GET请求，根据access_token得到用户信息
+            </summary>
+        </member>
+        <member name="F:VueAdmin.Domain.Configurations.GitHubConfig.UserId">
+            <summary>
+            Github UserId
+            </summary>
+        </member>
+        <member name="F:VueAdmin.Domain.Configurations.GitHubConfig.Client_ID">
+            <summary>
+            Client ID
+            </summary>
+        </member>
+        <member name="F:VueAdmin.Domain.Configurations.GitHubConfig.Client_Secret">
+            <summary>
+            Client Secret
+            </summary>
+        </member>
+        <member name="F:VueAdmin.Domain.Configurations.GitHubConfig.Redirect_Uri">
+            <summary>
+            Authorization callback URL
+            </summary>
+        </member>
+        <member name="F:VueAdmin.Domain.Configurations.GitHubConfig.ApplicationName">
+            <summary>
+            Application name
+            </summary>
+        </member>
+        <member name="F:VueAdmin.Domain.Settings.VueAdminSettings._config">
+            <summary>
+            配置文件的根节点
+            </summary>
+        </member>
+        <member name="M:VueAdmin.Domain.Settings.VueAdminSettings.#cctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Settings.VueAdminSettings.EnableDb">
+            <summary>
+            EnableDb
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Settings.VueAdminSettings.ConnectionStrings">
+            <summary>
+            ConnectionStrings
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Settings.VueAdminSettings.ApiVersion">
+            <summary>
+            ApiVersion
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Settings.VueAdminSettings.ListenPort">
+            <summary>
+            监听端口
+            </summary>
+        </member>
+        <member name="T:VueAdmin.Domain.Settings.VueAdminSettings.Caching">
+            <summary>
+            Caching
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Settings.VueAdminSettings.Caching.RedisConnectionString">
+            <summary>
+            RedisConnectionString
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.Settings.VueAdminSettings.Caching.IsOpen">
+            <summary>
+            是否开启
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.AccountEntity.Account">
+            <summary>
+            登录账号
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.AccountEntity.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.AccountEntity.RoleId">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.AccountEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.AccountEntity.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.AccountEntity.EditTime">
+            <summary>
+            编辑时间
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.AccountEntity.Editor">
+            <summary>
+            编辑人
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.AccountEntity.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.AccountEntity.Creater">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.MenuEntity.ParentId">
+            <summary>
+            父级Id
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.MenuEntity.Name">
+            <summary>
+            菜单名称
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.MenuEntity.Path">
+            <summary>
+            菜单地址
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.MenuEntity.Code">
+            <summary>
+            菜单编码
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.MenuEntity.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.MenuEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.MenuEntity.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.MenuEntity.EditTime">
+            <summary>
+            编辑时间
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.MenuEntity.Editor">
+            <summary>
+            编辑人
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.MenuEntity.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.MenuEntity.Creater">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="T:VueAdmin.Domain.System.Repositories.IAccountRepository">
+            <summary>
+            IAccountRepository
+            </summary>
+        </member>
+        <member name="T:VueAdmin.Domain.System.Repositories.IMenuRepository">
+            <summary>
+            IMenuRepository
+            </summary>
+        </member>
+        <member name="T:VueAdmin.Domain.System.Repositories.IRoleMenuRepository">
+            <summary>
+            IRoleMenuRepository
+            </summary>
+        </member>
+        <member name="T:VueAdmin.Domain.System.Repositories.IRoleRepository">
+            <summary>
+            IRoleRepository
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.RoleEntity.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.RoleEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.RoleEntity.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.RoleEntity.EditTime">
+            <summary>
+            编辑时间
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.RoleEntity.Editor">
+            <summary>
+            编辑人
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.RoleEntity.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Domain.System.RoleEntity.Creater">
+            <summary>
+            创建人
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<RootNamespace>VueAdmin.Swagger</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="5.1.2" />
+		<PackageReference Include="Volo.Abp.AspNetCore" Version="3.1.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\VueAdmin.Domain\VueAdmin.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

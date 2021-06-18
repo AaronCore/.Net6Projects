@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<RootNamespace>VueAdmin.Application.Caching</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Caching.CSRedis" Version="3.6.5" />
+		<PackageReference Include="CSRedisCore" Version="3.6.5" />
+		<PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="3.1.8" />
+		<PackageReference Include="Volo.Abp.Caching" Version="3.1.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\VueAdmin.Application.Contracts\VueAdmin.Application.Contracts.csproj" />
+		<ProjectReference Include="..\VueAdmin.Application.EventBus\VueAdmin.Application.EventBus.csproj" />
+		<ProjectReference Include="..\VueAdmin.Common\VueAdmin.Common.csproj" />
+		<ProjectReference Include="..\VueAdmin.Domain.Shared\VueAdmin.Domain.Shared.csproj" />
+		<ProjectReference Include="..\VueAdmin.Domain\VueAdmin.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

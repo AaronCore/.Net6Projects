@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Hangfire.Core" Version="1.7.13" />
+		<PackageReference Include="Hangfire.Dashboard.BasicAuthorization" Version="1.0.2" />
+		<PackageReference Include="Hangfire.SqlServer" Version="1.7.13" />
+		<PackageReference Include="Volo.Abp.AspNetCore" Version="3.1.2" />
+		<PackageReference Include="Volo.Abp.BackgroundJobs.HangFire" Version="3.1.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\VueAdmin.Application.Contracts\VueAdmin.Application.Contracts.csproj" />
+		<ProjectReference Include="..\VueAdmin.Common\VueAdmin.Common.csproj" />
+	</ItemGroup>
+
+</Project>

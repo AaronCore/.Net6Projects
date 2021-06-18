@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<RootNamespace>VueAdmin.Application</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\VueAdmin.Application.Caching\VueAdmin.Application.Caching.csproj" />
+		<ProjectReference Include="..\VueAdmin.Domain\VueAdmin.Domain.csproj" />
+		<ProjectReference Include="..\VueAdmin.Application.Contracts\VueAdmin.Application.Contracts.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.8" />
+		<PackageReference Include="Volo.Abp.Identity.Application" Version="3.1.2" />
+	</ItemGroup>
+
+</Project>

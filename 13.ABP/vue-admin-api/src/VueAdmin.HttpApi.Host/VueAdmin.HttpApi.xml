@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VueAdmin.HttpApi</name>
+    </assembly>
+    <members>
+        <member name="T:VueAdmin.HttpApi.Controllers.AccountController">
+            <summary>
+            Account接口
+            </summary>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.AccountController.QueryListAsync(System.Int32,System.Int32,System.String)">
+            <summary>
+            列表
+            </summary>
+            <param name="pageIndex">分页下标</param>
+            <param name="pageSize">分页大小</param>
+            <param name="query">查询条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.AccountController.SubmitAsync(VueAdmin.Application.Contracts.System.Account.AccountInput)">
+            <summary>
+            提交Account
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.AccountController.GetRoleAsync(System.String)">
+            <summary>
+            获取Account
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.AccountController.DeleteAsync(System.String[])">
+            <summary>
+            批量删除Account
+            </summary>
+            <param name="ids">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.AccountController.EditRangeEnabledAsync(System.String[])">
+            <summary>
+            批量修改Role状态
+            </summary>
+            <param name="ids">主键</param>
+            <returns></returns>
+        </member>
+        <member name="T:VueAdmin.HttpApi.Controllers.AuthController">
+            <summary>
+            授权接口
+            </summary>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.AuthController.GetLoginAddressAsync">
+            <summary>
+            获取登录地址(GitHub)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.AuthController.GetAccessTokenAsync(System.String)">
+            <summary>
+            获取AccessToken
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.AuthController.GenerateTokenAsync(System.String)">
+            <summary>
+            登录成功，生成Token
+            </summary>
+            <param name="access_token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.AuthController.VerifyToken(System.String)">
+            <summary>
+            验证Token是否合法
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VueAdmin.HttpApi.Controllers.HelloWorldController">
+            <summary>
+            公共接口
+            </summary>
+        </member>
+        <member name="T:VueAdmin.HttpApi.Controllers.MenuController">
+            <summary>
+            Menu接口
+            </summary>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.MenuController.QueryListAsync(System.Int32,System.Int32,System.String)">
+            <summary>
+            列表
+            </summary>
+            <param name="pageIndex">分页下标</param>
+            <param name="pageSize">分页大小</param>
+            <param name="query">查询条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.MenuController.SubmitAsync(VueAdmin.Application.Contracts.System.Menu.MenuInput)">
+            <summary>
+            提交Menu
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.MenuController.GetMenuAsync(System.String)">
+            <summary>
+            获取Menu
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.MenuController.DeleteAsync(System.String[])">
+            <summary>
+            批量删除Menu
+            </summary>
+            <param name="ids">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.MenuController.EditEnabledAsync(System.String,System.Boolean)">
+            <summary>
+            修改Menu状态
+            </summary>
+            <param name="id">主键</param>
+            <param name="enabled">状态</param>
+            <returns></returns>
+        </member>
+        <member name="T:VueAdmin.HttpApi.Controllers.RoleController">
+            <summary>
+            Role接口
+            </summary>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.RoleController.QueryListAsync(System.Int32,System.Int32,System.String)">
+            <summary>
+            列表
+            </summary>
+            <param name="pageIndex">分页下标</param>
+            <param name="pageSize">分页大小</param>
+            <param name="query">查询条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.RoleController.SubmitAsync(VueAdmin.Application.Contracts.System.Role.RoleInput)">
+            <summary>
+            提交Role
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.RoleController.GetRoleAsync(System.String)">
+            <summary>
+            获取Role
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.RoleController.DeleteAsync(System.String[])">
+            <summary>
+            批量删除Role
+            </summary>
+            <param name="ids">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:VueAdmin.HttpApi.Controllers.RoleController.EditRangeEnabledAsync(System.String[])">
+            <summary>
+            批量修改Role状态
+            </summary>
+            <param name="ids">主键</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

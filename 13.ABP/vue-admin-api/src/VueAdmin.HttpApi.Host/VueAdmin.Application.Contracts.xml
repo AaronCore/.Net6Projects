@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VueAdmin.Application.Contracts</name>
+    </assembly>
+    <members>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountInput.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountInput.Account">
+            <summary>
+            登录账号
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountInput.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountInput.RoleId">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountInput.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountOut.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountOut.Account">
+            <summary>
+            登录账号
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountOut.Password">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountOut.RoleId">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountOut.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountOut.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountOut.EditTime">
+            <summary>
+            编辑时间
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountOut.Editor">
+            <summary>
+            编辑人
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountOut.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Account.AccountOut.Creater">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuInput.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuInput.ParentId">
+            <summary>
+            父级Id
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuInput.Name">
+            <summary>
+            菜单名称
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuInput.Path">
+            <summary>
+            菜单地址
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuInput.Code">
+            <summary>
+            菜单编码
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuInput.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuInput.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuOut.Id">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuOut.ParentId">
+            <summary>
+            父级Id
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuOut.Name">
+            <summary>
+            菜单名称
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuOut.Path">
+            <summary>
+            菜单地址
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuOut.Code">
+            <summary>
+            菜单编码
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuOut.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuOut.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuOut.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuOut.EditTime">
+            <summary>
+            编辑时间
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuOut.Editor">
+            <summary>
+            编辑人
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuOut.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Menu.MenuOut.Creater">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Role.RoleInput.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Role.RoleInput.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Role.RoleInput.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Role.RoleInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Role.RoleOut.Id">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Role.RoleOut.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Role.RoleOut.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Role.RoleOut.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Role.RoleOut.EditTime">
+            <summary>
+            编辑时间
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Role.RoleOut.Editor">
+            <summary>
+            编辑人
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Role.RoleOut.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:VueAdmin.Application.Contracts.System.Role.RoleOut.Creater">
+            <summary>
+            创建人
+            </summary>
+        </member>
+    </members>
+</doc>

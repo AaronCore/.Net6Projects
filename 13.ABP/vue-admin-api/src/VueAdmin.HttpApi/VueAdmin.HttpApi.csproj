@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<RootNamespace>VueAdmin.HttpApi</RootNamespace>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>..\VueAdmin.HttpApi.Host\VueAdmin.HttpApi.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\VueAdmin.Application.Contracts\VueAdmin.Application.Contracts.csproj" />
+		<ProjectReference Include="..\VueAdmin.Application\VueAdmin.Application.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Identity.HttpApi" Version="3.1.2" />
+	</ItemGroup>
+
+</Project>
