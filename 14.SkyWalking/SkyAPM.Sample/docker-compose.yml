@@ -1,0 +1,55 @@
+version: '3.5'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
+    container_name: elasticsearch
+    restart: always
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - TZ=Asia/Shanghai
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+  skywalking_oap:
+    image: apache/skywalking-oap-server:7.0.0-es7
+    container_name: skywalking_oap
+    restart: always
+    depends_on:
+      - elasticsearch
+    links:
+      - elasticsearch
+    ports:
+      - 11800:11800
+      - 12800:12800
+      - 1234:1234
+    healthcheck:
+      test: ["CMD", "./bin/swctl", "ch"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    environment:
+      SW_STORAGE: elasticsearch7
+      SW_STORAGE_ES_CLUSTER_NODES: elasticsearch:9200
+      SW_HEALTH_CHECKER: default
+      SW_TELEMETRY: prometheus
+      TZ: Asia/Shanghai
+  skywalking_ui:
+    image: apache/skywalking-ui:7.0.0
+    container_name: skywalking_ui
+    restart: always
+    depends_on:
+      - skywalking_oap
+    links:
+      - skywalking_oap
+    ports:
+      - 8080:8080
+    environment:
+      SW_OAP_ADDRESS: skywalking_oap:12800
+      TZ: Asia/Shanghai
