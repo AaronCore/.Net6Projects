@@ -21,7 +21,6 @@ namespace EasyStore.Web
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                })
-                .UseAutofac();
+                });
     }
 }
