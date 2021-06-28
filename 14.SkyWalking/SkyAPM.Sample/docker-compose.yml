@@ -17,7 +17,7 @@ services:
         soft: -1
         hard: -1
   skywalking_oap:
-    image: apache/skywalking-oap-server:7.0.0-es7
+    image: apache/skywalking-oap-server:8.3.0-es7
     container_name: skywalking_oap
     restart: always
     depends_on:
@@ -41,7 +41,7 @@ services:
       SW_TELEMETRY: prometheus
       TZ: Asia/Shanghai
   skywalking_ui:
-    image: apache/skywalking-ui:7.0.0
+    image: apache/skywalking-ui:8.3.0
     container_name: skywalking_ui
     restart: always
     depends_on:
