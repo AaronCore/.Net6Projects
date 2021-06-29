@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AutoEntity>
+	<ConnString>
+		<![CDATA[   Server=10.10.100.211;Port=3306;Database=segotep_mes;Uid=sa;Pwd=sa.123;    ]]>
+	</ConnString>
+	<Type>
+		mysql
+	</Type>
+<Template>
+    <![CDATA[
+using System;
+
+namespace $entity.ProjectName
+{
+    public class $entity.TableName
+    {
+#foreach($c in $entity.Columns)
+
+        /// <summary>
+#if($c.Remark != "")
+        /// $c.Remark
+#else
+        /// $c.Name
+#end
+        /// </summary>
+        public $c.CSharpType $c.Name { get; set; }
+#end
+    }
+}
+]]>
+  </Template>
+</AutoEntity>
