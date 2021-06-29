@@ -33,7 +33,7 @@ namespace SysRepository
         /// 公用泛型处理属性
         /// 注:所有泛型操作的基础
         /// </summary>
-        public DbSet<T> dbSet
+        public DbSet<T> DbSet
         {
             get { return Context.Set<T>(); }
         }
@@ -97,29 +97,29 @@ namespace SysRepository
 
         #region 添加
 
-        public virtual bool AddEntity(T entity, bool isCommit = true)
+        public virtual bool Insert(T entity, bool isCommit = true)
         {
-            dbSet.Add(entity);
+            DbSet.Add(entity);
             return !isCommit || Context.SaveChanges() > 0;
         }
-        public virtual bool AddEntityRange(IEnumerable<T> entitys, bool isCommit = true)
+        public virtual bool Insert(IEnumerable<T> entitys, bool isCommit = true)
         {
-            dbSet.AddRange(entitys);
+            DbSet.AddRange(entitys);
             return !isCommit || Context.SaveChanges() > 0;
         }
 
-        public virtual async Task<bool> AddEntityAsync(T entity, bool isCommit = true)
+        public virtual async Task<bool> InsertAsync(T entity, bool isCommit = true)
         {
-            dbSet.Add(entity);
+            DbSet.Add(entity);
             if (!isCommit)
             {
                 return false;
             }
             return await Context.SaveChangesAsync() > 0;
         }
-        public virtual async Task<bool> AddEntityRangeAsync(IEnumerable<T> entitys, bool isCommit = true)
+        public virtual async Task<bool> InsertAsync(IEnumerable<T> entitys, bool isCommit = true)
         {
-            dbSet.AddRange(entitys);
+            DbSet.AddRange(entitys);
             if (!isCommit)
             {
                 return false;
@@ -131,22 +131,22 @@ namespace SysRepository
 
         #region 修改
 
-        public virtual bool UpdateEntity(T entity, bool isCommit = true)
+        public virtual bool Update(T entity, bool isCommit = true)
         {
             if (Context.Entry(entity).State == EntityState.Detached)
             {
-                dbSet.Attach(entity);
+                DbSet.Attach(entity);
             }
             Context.Entry(entity).State = EntityState.Modified;
             return !isCommit || Context.SaveChanges() > 0;
         }
-        public virtual bool UpdateEntityRange(IEnumerable<T> entitys, bool isCommit = true)
+        public virtual bool Update(IEnumerable<T> entitys, bool isCommit = true)
         {
             foreach (var entity in entitys)
             {
                 if (Context.Entry(entity).State == EntityState.Detached)
                 {
-                    dbSet.Attach(entity);
+                    DbSet.Attach(entity);
                 }
                 Context.Entry(entity).State = EntityState.Modified;
             }
@@ -161,12 +161,12 @@ namespace SysRepository
             }
             if (Context.Entry(entity).State == EntityState.Detached)
             {
-                dbSet.Attach(entity);
+                DbSet.Attach(entity);
             }
             Context.Entry(entity).State = EntityState.Modified;
             return await Context.SaveChangesAsync() > 0;
         }
-        public virtual async Task<bool> UpdateEntityRangeAsync(IEnumerable<T> entities, bool isCommit = true)
+        public virtual async Task<bool> UpdateAsync(IEnumerable<T> entities, bool isCommit = true)
         {
             if (!isCommit)
             {
@@ -176,7 +176,7 @@ namespace SysRepository
             {
                 if (Context.Entry(entity).State == EntityState.Detached)
                 {
-                    dbSet.Attach(entity);
+                    DbSet.Attach(entity);
                 }
                 Context.Entry(entity).State = EntityState.Modified;
             }
@@ -187,23 +187,23 @@ namespace SysRepository
 
         #region 删除
 
-        public virtual bool DelEntity(T entity, bool isCommit = true)
+        public virtual bool Delete(T entity, bool isCommit = true)
         {
             if (Context.Entry(entity).State == EntityState.Detached)
             {
-                dbSet.Attach(entity);
+                DbSet.Attach(entity);
             }
-            dbSet.Remove(entity);
+            DbSet.Remove(entity);
             return !isCommit || Context.SaveChanges() > 0;
         }
-        public virtual bool DelEntityRange(Expression<Func<T, bool>> filter, bool isCommit = true)
+        public virtual bool Delete(Expression<Func<T, bool>> filter, bool isCommit = true)
         {
-            var entitys = dbSet.Where(filter);
-            dbSet.RemoveRange(entitys);
+            var entitys = DbSet.Where(filter);
+            DbSet.RemoveRange(entitys);
             return !isCommit || Context.SaveChanges() > 0;
         }
 
-        public virtual async Task<bool> DelEntityAsync(T entity, bool isCommit = true)
+        public virtual async Task<bool> DeleteAsync(T entity, bool isCommit = true)
         {
             if (!isCommit)
             {
@@ -211,19 +211,19 @@ namespace SysRepository
             }
             if (Context.Entry(entity).State == EntityState.Detached)
             {
-                dbSet.Attach(entity);
+                DbSet.Attach(entity);
             }
-            dbSet.Remove(entity);
+            DbSet.Remove(entity);
             return await Context.SaveChangesAsync() > 0;
         }
-        public virtual async Task<bool> DelEntityRangeAsync(Expression<Func<T, bool>> filter, bool isCommit = true)
+        public virtual async Task<bool> DeleteAsync(Expression<Func<T, bool>> filter, bool isCommit = true)
         {
             if (!isCommit)
             {
                 return false;
             }
-            var entitys = dbSet.Where(filter);
-            dbSet.RemoveRange(entitys);
+            var entitys = DbSet.Where(filter);
+            DbSet.RemoveRange(entitys);
             return await Context.SaveChangesAsync() > 0;
         }
 
@@ -233,242 +233,242 @@ namespace SysRepository
 
         public virtual T Find(object id)
         {
-            return dbSet.Find(id);
+            return DbSet.Find(id);
         }
-        public virtual IEnumerable<T> GetEntityAll()
+        public virtual IEnumerable<T> GetAll()
         {
-            return dbSet.ToList();
+            return DbSet.ToList();
         }
-        public virtual IEnumerable<T> GetEntityAll(Expression<Func<T, bool>> where)
+        public virtual IEnumerable<T> GetAll(Expression<Func<T, bool>> where)
         {
-            return dbSet.Where(where).ToList();
+            return DbSet.Where(where).ToList();
         }
-        public virtual T GetEntity(Expression<Func<T, bool>> where)
+        public virtual T Get(Expression<Func<T, bool>> where)
         {
-            return dbSet.Where(where).FirstOrDefault();
+            return DbSet.Where(where).FirstOrDefault();
         }
-        public virtual bool AnyEntity(Expression<Func<T, bool>> where)
+        public virtual bool Any(Expression<Func<T, bool>> where)
         {
-            return dbSet.Any(where);
+            return DbSet.Any(where);
         }
 
         public virtual async Task<T> FindAsync(object id)
         {
-            return await dbSet.FindAsync(id);
+            return await DbSet.FindAsync(id);
         }
-        public virtual async Task<IEnumerable<T>> GetEntityAllAsync()
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await dbSet.ToListAsync();
+            return await DbSet.ToListAsync();
         }
-        public virtual async Task<IEnumerable<T>> GetEntityAllAsync(Expression<Func<T, bool>> where)
+        public virtual async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> where)
         {
-            return await dbSet.Where(where).ToListAsync();
+            return await DbSet.Where(where).ToListAsync();
         }
-        public virtual async Task<T> GetEntityAsync(Expression<Func<T, bool>> where)
+        public virtual async Task<T> GetAsync(Expression<Func<T, bool>> where)
         {
-            return await dbSet.Where(where).FirstOrDefaultAsync();
+            return await DbSet.Where(where).FirstOrDefaultAsync();
         }
-        public virtual async Task<bool> AnyEntityAsync(Expression<Func<T, bool>> where)
+        public virtual async Task<bool> AnyAsync(Expression<Func<T, bool>> where)
         {
-            return await dbSet.AnyAsync(where);
+            return await DbSet.AnyAsync(where);
         }
 
         #region 分页查询
 
-        public virtual IEnumerable<T> LoadEntityEnumerable(Expression<Func<T, bool>> where, Expression<Func<T, string>> orderby, string asc, int pageIndex, int pageSize)
+        public virtual IEnumerable<T> PagedQuery(Expression<Func<T, bool>> where, Expression<Func<T, string>> orderby, string asc, int pageIndex, int pageSize)
         {
             --pageIndex;
 
             if (asc.Equals(nameof(asc)))
-                return (IEnumerable<T>)dbSet.Where<T>(where).OrderBy<T, string>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
-            return (IEnumerable<T>)dbSet.Where<T>(where).OrderByDescending<T, string>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
+                return (IEnumerable<T>)DbSet.Where<T>(where).OrderBy<T, string>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
+            return (IEnumerable<T>)DbSet.Where<T>(where).OrderByDescending<T, string>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
         }
-        public virtual IEnumerable<T> LoadEntityEnumerable(Expression<Func<T, bool>> where, Expression<Func<T, int?>> orderby, string asc, int pageIndex, int pageSize)
+        public virtual IEnumerable<T> PagedQuery(Expression<Func<T, bool>> where, Expression<Func<T, int?>> orderby, string asc, int pageIndex, int pageSize)
         {
             --pageIndex;
 
             if (asc.Equals(nameof(asc)))
-                return (IEnumerable<T>)dbSet.Where<T>(where).OrderBy<T, int?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
-            return (IEnumerable<T>)dbSet.Where<T>(where).OrderByDescending<T, int?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
+                return (IEnumerable<T>)DbSet.Where<T>(where).OrderBy<T, int?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
+            return (IEnumerable<T>)DbSet.Where<T>(where).OrderByDescending<T, int?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
         }
-        public virtual IEnumerable<T> LoadEntityEnumerable(Expression<Func<T, bool>> where, Expression<Func<T, DateTime?>> orderby, string asc, int pageIndex, int pageSize)
+        public virtual IEnumerable<T> PagedQuery(Expression<Func<T, bool>> where, Expression<Func<T, DateTime?>> orderby, string asc, int pageIndex, int pageSize)
         {
             --pageIndex;
 
             if (asc.Equals(nameof(asc)))
-                return (IEnumerable<T>)dbSet.Where<T>(where).OrderBy<T, DateTime?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
-            return (IEnumerable<T>)dbSet.Where<T>(where).OrderByDescending<T, DateTime?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
+                return (IEnumerable<T>)DbSet.Where<T>(where).OrderBy<T, DateTime?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
+            return (IEnumerable<T>)DbSet.Where<T>(where).OrderByDescending<T, DateTime?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
         }
-        public virtual IEnumerable<T> LoadEntityEnumerable(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> orderby, string asc, int pageIndex, int pageSize)
+        public virtual IEnumerable<T> PagedQuery(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> orderby, string asc, int pageIndex, int pageSize)
         {
             --pageIndex;
 
             if (asc.Equals(nameof(asc)))
-                return (IEnumerable<T>)dbSet.Where<T>(where).OrderBy<T, Decimal?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
-            return (IEnumerable<T>)dbSet.Where<T>(where).OrderByDescending<T, Decimal?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
+                return (IEnumerable<T>)DbSet.Where<T>(where).OrderBy<T, Decimal?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
+            return (IEnumerable<T>)DbSet.Where<T>(where).OrderByDescending<T, Decimal?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
         }
-        public virtual IEnumerable<T> LoadEntityEnumerable(Expression<Func<T, bool>> where, Expression<Func<T, bool?>> orderby, string asc, int pageIndex, int pageSize)
+        public virtual IEnumerable<T> PagedQuery(Expression<Func<T, bool>> where, Expression<Func<T, bool?>> orderby, string asc, int pageIndex, int pageSize)
         {
             --pageIndex;
 
             if (asc.Equals(nameof(asc)))
-                return (IEnumerable<T>)dbSet.Where<T>(where).OrderBy<T, bool?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
-            return (IEnumerable<T>)dbSet.Where<T>(where).OrderByDescending<T, bool?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
+                return (IEnumerable<T>)DbSet.Where<T>(where).OrderBy<T, bool?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
+            return (IEnumerable<T>)DbSet.Where<T>(where).OrderByDescending<T, bool?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize);
         }
 
-        public virtual async Task<IEnumerable<T>> LoadEntityListAsync(Expression<Func<T, bool>> where, Expression<Func<T, string>> orderby, string asc, int pageIndex, int pageSize)
+        public virtual async Task<IEnumerable<T>> PagedQueryAsync(Expression<Func<T, bool>> where, Expression<Func<T, string>> orderby, string asc, int pageIndex, int pageSize)
         {
             --pageIndex;
 
             if (asc.Equals(nameof(asc)))
-                return await dbSet.Where<T>(where).OrderBy<T, string>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
-            return await dbSet.Where<T>(where).OrderByDescending<T, string>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
+                return await DbSet.Where<T>(where).OrderBy<T, string>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
+            return await DbSet.Where<T>(where).OrderByDescending<T, string>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
         }
-        public virtual async Task<IEnumerable<T>> LoadEntityListAsync(Expression<Func<T, bool>> where, Expression<Func<T, int?>> orderby, string asc, int pageIndex, int pageSize)
+        public virtual async Task<IEnumerable<T>> PagedQueryAsync(Expression<Func<T, bool>> where, Expression<Func<T, int?>> orderby, string asc, int pageIndex, int pageSize)
         {
             --pageIndex;
 
             if (asc.Equals(nameof(asc)))
-                return await dbSet.Where<T>(where).OrderBy<T, int?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
-            return await dbSet.Where<T>(where).OrderByDescending<T, int?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
+                return await DbSet.Where<T>(where).OrderBy<T, int?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
+            return await DbSet.Where<T>(where).OrderByDescending<T, int?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
         }
-        public virtual async Task<IEnumerable<T>> LoadEntityListAsync(Expression<Func<T, bool>> where, Expression<Func<T, DateTime?>> orderby, string asc, int pageIndex, int pageSize)
+        public virtual async Task<IEnumerable<T>> PagedQueryAsync(Expression<Func<T, bool>> where, Expression<Func<T, DateTime?>> orderby, string asc, int pageIndex, int pageSize)
         {
             --pageIndex;
 
             if (asc.Equals(nameof(asc)))
-                return await dbSet.Where<T>(where).OrderBy<T, DateTime?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
-            return await dbSet.Where<T>(where).OrderByDescending<T, DateTime?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
+                return await DbSet.Where<T>(where).OrderBy<T, DateTime?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
+            return await DbSet.Where<T>(where).OrderByDescending<T, DateTime?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
         }
-        public virtual async Task<IEnumerable<T>> LoadEntityListAsync(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> orderby, string asc, int pageIndex, int pageSize)
+        public virtual async Task<IEnumerable<T>> PagedQueryAsync(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> orderby, string asc, int pageIndex, int pageSize)
         {
             --pageIndex;
 
             if (asc.Equals(nameof(asc)))
-                return await dbSet.Where<T>(where).OrderBy<T, Decimal?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
-            return await dbSet.Where<T>(where).OrderByDescending<T, Decimal?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
+                return await DbSet.Where<T>(where).OrderBy<T, Decimal?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
+            return await DbSet.Where<T>(where).OrderByDescending<T, Decimal?>(orderby).Skip<T>(pageIndex * pageSize).Take<T>(pageSize).ToListAsync();
         }
 
         #endregion
 
         #region 查询实体数量
 
-        public virtual int GetEntityCount(Expression<Func<T, bool>> where)
+        public virtual int Count(Expression<Func<T, bool>> where)
         {
-            return dbSet.Count<T>(where);
+            return DbSet.Count<T>(where);
         }
 
-        public virtual async Task<int> GetEntityCountAsync(Expression<Func<T, bool>> where)
+        public virtual async Task<int> CountAsync(Expression<Func<T, bool>> where)
         {
-            return await dbSet.CountAsync<T>(where);
+            return await DbSet.CountAsync<T>(where);
         }
 
         #endregion
 
         #region 求平均，求总计
 
-        public virtual int? GetSum(Expression<Func<T, bool>> where, Expression<Func<T, int?>> sum)
+        public virtual int? Sum(Expression<Func<T, bool>> where, Expression<Func<T, int?>> sum)
         {
-            return dbSet.Where<T>(where).Sum<T>(sum);
+            return DbSet.Where<T>(where).Sum<T>(sum);
         }
-        public virtual double? GetSum(Expression<Func<T, bool>> where, Expression<Func<T, double?>> sum)
+        public virtual double? Sum(Expression<Func<T, bool>> where, Expression<Func<T, double?>> sum)
         {
-            return dbSet.Where<T>(where).Sum<T>(sum);
+            return DbSet.Where<T>(where).Sum<T>(sum);
         }
-        public virtual float? GetSum(Expression<Func<T, bool>> where, Expression<Func<T, float?>> sum)
+        public virtual float? Sum(Expression<Func<T, bool>> where, Expression<Func<T, float?>> sum)
         {
-            return dbSet.Where<T>(where).Sum<T>(sum);
+            return DbSet.Where<T>(where).Sum<T>(sum);
         }
-        public virtual decimal? GetSum(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> sum)
+        public virtual decimal? Sum(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> sum)
         {
-            return dbSet.Where<T>(where).Sum<T>(sum);
+            return DbSet.Where<T>(where).Sum<T>(sum);
         }
-        public virtual double? GetAvg(Expression<Func<T, bool>> where, Expression<Func<T, int?>> avg)
+        public virtual double? Avg(Expression<Func<T, bool>> where, Expression<Func<T, int?>> avg)
         {
-            return dbSet.Where<T>(where).Average<T>(avg);
+            return DbSet.Where<T>(where).Average<T>(avg);
         }
-        public virtual double? GetAvg(Expression<Func<T, bool>> where, Expression<Func<T, double?>> avg)
+        public virtual double? Avg(Expression<Func<T, bool>> where, Expression<Func<T, double?>> avg)
         {
-            return dbSet.Where<T>(where).Average<T>(avg);
+            return DbSet.Where<T>(where).Average<T>(avg);
         }
-        public virtual float? GetAvg(Expression<Func<T, bool>> where, Expression<Func<T, float?>> avg)
+        public virtual float? Avg(Expression<Func<T, bool>> where, Expression<Func<T, float?>> avg)
         {
-            return dbSet.Where<T>(where).Average<T>(avg);
+            return DbSet.Where<T>(where).Average<T>(avg);
         }
-        public virtual decimal? GetAvg(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> avg)
+        public virtual decimal? Avg(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> avg)
         {
-            return dbSet.Where<T>(where).Average<T>(avg);
+            return DbSet.Where<T>(where).Average<T>(avg);
         }
 
-        public virtual async Task<int?> GetSumAsync(Expression<Func<T, bool>> where, Expression<Func<T, int?>> sum)
+        public virtual async Task<int?> SumAsync(Expression<Func<T, bool>> where, Expression<Func<T, int?>> sum)
         {
-            return await dbSet.Where<T>(where).SumAsync<T>(sum);
+            return await DbSet.Where<T>(where).SumAsync<T>(sum);
         }
-        public virtual async Task<double?> GetSumAsync(Expression<Func<T, bool>> where, Expression<Func<T, double?>> sum)
+        public virtual async Task<double?> SumAsync(Expression<Func<T, bool>> where, Expression<Func<T, double?>> sum)
         {
-            return await dbSet.Where<T>(where).SumAsync<T>(sum);
+            return await DbSet.Where<T>(where).SumAsync<T>(sum);
         }
-        public virtual async Task<float?> GetSumAsync(Expression<Func<T, bool>> where, Expression<Func<T, float?>> sum)
+        public virtual async Task<float?> SumAsync(Expression<Func<T, bool>> where, Expression<Func<T, float?>> sum)
         {
-            return await dbSet.Where<T>(where).SumAsync<T>(sum);
+            return await DbSet.Where<T>(where).SumAsync<T>(sum);
         }
-        public virtual async Task<decimal?> GetSumAsync(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> sum)
+        public virtual async Task<decimal?> SumAsync(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> sum)
         {
-            return await dbSet.Where<T>(where).SumAsync<T>(sum);
+            return await DbSet.Where<T>(where).SumAsync<T>(sum);
         }
-        public virtual async Task<double?> GetAvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, int?>> avg)
+        public virtual async Task<double?> AvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, int?>> avg)
         {
-            return await dbSet.Where<T>(where).AverageAsync<T>(avg);
+            return await DbSet.Where<T>(where).AverageAsync<T>(avg);
         }
-        public virtual async Task<double?> GetAvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, double?>> avg)
+        public virtual async Task<double?> AvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, double?>> avg)
         {
-            return await dbSet.Where<T>(where).AverageAsync<T>(avg);
+            return await DbSet.Where<T>(where).AverageAsync<T>(avg);
         }
-        public virtual async Task<float?> GetAvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, float?>> avg)
+        public virtual async Task<float?> AvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, float?>> avg)
         {
-            return await dbSet.Where<T>(where).AverageAsync<T>(avg);
+            return await DbSet.Where<T>(where).AverageAsync<T>(avg);
         }
-        public virtual async Task<decimal?> GetAvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> avg)
+        public virtual async Task<decimal?> AvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> avg)
         {
-            return await dbSet.Where<T>(where).AverageAsync<T>(avg);
+            return await DbSet.Where<T>(where).AverageAsync<T>(avg);
         }
 
         #endregion
 
         #region 查最大
 
-        public virtual int? GetMax(Expression<Func<T, int?>> max)
+        public virtual int? Max(Expression<Func<T, int?>> max)
         {
-            return dbSet.Max<T, int?>(max);
+            return DbSet.Max<T, int?>(max);
         }
-        public virtual double? GetMax(Expression<Func<T, double?>> max)
+        public virtual double? Max(Expression<Func<T, double?>> max)
         {
-            return dbSet.Max<T, double?>(max);
+            return DbSet.Max<T, double?>(max);
         }
-        public virtual decimal? GetMax(Expression<Func<T, decimal?>> max)
+        public virtual decimal? Max(Expression<Func<T, decimal?>> max)
         {
-            return dbSet.Max<T, decimal?>(max);
+            return DbSet.Max<T, decimal?>(max);
         }
-        public virtual DateTime? GetMax(Expression<Func<T, DateTime?>> max)
+        public virtual DateTime? Max(Expression<Func<T, DateTime?>> max)
         {
-            return dbSet.Max<T, DateTime?>(max);
+            return DbSet.Max<T, DateTime?>(max);
         }
 
-        public virtual async Task<int?> GetMaxAsync(Expression<Func<T, int?>> max)
+        public virtual async Task<int?> MaxAsync(Expression<Func<T, int?>> max)
         {
-            return await dbSet.MaxAsync<T, int?>(max);
+            return await DbSet.MaxAsync<T, int?>(max);
         }
-        public virtual async Task<double?> GetMaxAsync(Expression<Func<T, double?>> max)
+        public virtual async Task<double?> MaxAsync(Expression<Func<T, double?>> max)
         {
-            return await dbSet.MaxAsync<T, double?>(max);
+            return await DbSet.MaxAsync<T, double?>(max);
         }
-        public virtual async Task<decimal?> GetMaxAsync(Expression<Func<T, decimal?>> max)
+        public virtual async Task<decimal?> MaxAsync(Expression<Func<T, decimal?>> max)
         {
-            return await dbSet.MaxAsync<T, decimal?>(max);
+            return await DbSet.MaxAsync<T, decimal?>(max);
         }
-        public virtual async Task<DateTime?> GetMaxAsync(Expression<Func<T, DateTime?>> max)
+        public virtual async Task<DateTime?> MaxAsync(Expression<Func<T, DateTime?>> max)
         {
-            return await dbSet.MaxAsync<T, DateTime?>(max);
+            return await DbSet.MaxAsync<T, DateTime?>(max);
         }
 
         #endregion
@@ -481,11 +481,11 @@ namespace SysRepository
         {
             return Context.Database.SqlQuery<T>(sql, parameters);
         }
-        public virtual int ExecuteSqlCommand(string sql, params object[] parameters)
+        public virtual int ExecuteSql(string sql, params object[] parameters)
         {
             return Context.Database.ExecuteSqlCommand(sql, parameters);
         }
-        public virtual async Task<int> ExecuteSqlCommandAsync(string sql, params object[] parameters)
+        public virtual async Task<int> ExecuteSqlAsync(string sql, params object[] parameters)
         {
             return await Context.Database.ExecuteSqlCommandAsync(sql, parameters);
         }

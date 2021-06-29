@@ -19,7 +19,7 @@ namespace SysApplication.UserService
         }
         public void Add(UserEntity entity)
         {
-            _userRepository.AddEntity(entity);
+            _userRepository.Insert(entity);
         }
     }
 }

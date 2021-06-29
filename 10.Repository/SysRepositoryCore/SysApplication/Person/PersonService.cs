@@ -16,12 +16,12 @@ namespace SysApplication.Person
         }
         public void Add(PersonEntity entity)
         {
-            _personRepository.AddEntity(entity);
+            _personRepository.Insert(entity);
             _personRepository.Commit();
         }
         public List<PersonEntity> GetPersons()
         {
-            return _personRepository.GetEntityAll();
+            return _personRepository.GetAll();
         }
     }
 }
