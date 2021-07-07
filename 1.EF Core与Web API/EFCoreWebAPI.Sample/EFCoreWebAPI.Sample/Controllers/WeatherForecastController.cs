@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EFCoreWebAPI.Sample.Extensions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace EFCoreWebAPI.Sample.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            //var statichttpcontext = HttpContext.Request;
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

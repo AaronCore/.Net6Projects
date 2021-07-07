@@ -4,7 +4,6 @@ using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
@@ -15,6 +14,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Newtonsoft.Json.Serialization;
 using EFCoreWebAPI.Sample.DataContext;
+using EFCoreWebAPI.Sample.Extensions;
+using Microsoft.Extensions.DependencyInjection;
+using EFCoreWebAPI.Sample.MiddleWare;
 
 namespace EFCoreWebAPI.Sample
 {
@@ -97,6 +99,8 @@ namespace EFCoreWebAPI.Sample
 
             // AutoMapperÓ³Éä
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            //services.AddHttpContextAccessorExtension();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -120,11 +124,15 @@ namespace EFCoreWebAPI.Sample
                 });
             }
 
+            //app.UseStaticHttpContext();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //app.MyUseLogger();
 
             app.UseEndpoints(endpoints =>
             {
