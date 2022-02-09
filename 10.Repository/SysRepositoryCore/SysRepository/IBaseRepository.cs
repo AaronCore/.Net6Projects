@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 using SysEntityFrameworkCore;
 
 namespace SysRepository
@@ -15,141 +12,329 @@ namespace SysRepository
     /// <typeparam name="T"></typeparam>
     public interface IBaseRepository<T> : IUnitOfWork where T : class, new()
     {
-        #region 数据对象操作
+        #region 同步
 
         /// <summary>
-        /// 数据上下文
+        /// 新增
         /// </summary>
-        DbContext Context { get; }
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        void Add(T entity);
+
         /// <summary>
-        /// 数据模型操作
+        /// 批量新增
         /// </summary>
-        DbSet<T> DbSet { get; }
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        void AddRange(List<T> entity);
+
         /// <summary>
-        /// EF事务
+        /// 删除
         /// </summary>
-        DbTransaction Transaction { get; set; }
-        /// <summary>
-        /// 事务提交结果
-        /// </summary>
-        bool Committed { get; set; }
-        /// <summary>
-        /// 提交事务
-        /// </summary>
-        void CommitAffair();
-        /// <summary>
-        /// 回滚事务
-        /// </summary>
-        void RollbackAffair();
-
-        #endregion
-
-        #region 新增
-
-        void Insert(T entity);
-        void Insert(IEnumerable<T> entity);
-
-        Task InsertAsync(T entity);
-        Task InsertAsync(IEnumerable<T> entity);
-
-        #endregion
-
-        #region 修改
-
-        void Update(T entity);
-        int Update(Expression<Func<T, bool>> where, Expression<Func<T, T>> entity);
-        Task<int> UpdateAsync(Expression<Func<T, bool>> where, Expression<Func<T, T>> entity);
-
-        #endregion
-
-        #region 删除
-
+        /// <param name="where"></param>
+        /// <returns></returns>
         int Delete(Expression<Func<T, bool>> where);
-        Task<int> DeleteAsync(Expression<Func<T, bool>> where);
 
-        #endregion
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        void Update(T entity);
 
-        #region 查询
+        /// <summary>
+        /// 批量修改
+        /// </summary>
+        /// <param name="where"></param>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        int UpdateRange(Expression<Func<T, bool>> where, Expression<Func<T, T>> entity);
 
-        T Find(object id);
-        T Get(Expression<Func<T, bool>> where);
-        List<T> GetAll();
-        List<T> GetAll(Expression<Func<T, bool>> where);
+        /// <summary>
+        /// 查询所有数据
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<T> GetAll();
+
+        /// <summary>
+        /// 根据条件查询
+        /// </summary>
+        /// <param name="where">lamda表达式</param>
+        /// <returns></returns>
+        IEnumerable<T> Get(Expression<Func<T, bool>> where);
+
+        /// <summary>
+        /// 根据条件查询
+        /// </summary>
+        /// <param name="where">lamda表达式</param>
+        /// <returns></returns>
+        T? GetEntity(Expression<Func<T, bool>> where);
+
+        /// <summary>
+        /// 根据主键获取
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        T? Find(object? key);
+
+        /// <summary>
+        /// 获取最大的一条数据
+        /// </summary>
+        /// <param name="order"></param>
+        /// <returns></returns>
+        T? GetMaxSort(Expression<Func<T, int>> order);
+
+        /// <summary>
+        /// 获取最小的一条数据
+        /// </summary>
+        /// <param name="order"></param>
+        /// <returns></returns>
+        T? GetMinSort(Expression<Func<T, int>> order);
+
+        /// <summary>
+        ///  Any 查找数据判断数据是否存在
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
         bool Any(Expression<Func<T, bool>> where);
 
-        Task<T> FindAsync(object id);
-        Task<T> GetAsync(Expression<Func<T, bool>> where);
-        Task<List<T>> GetAllAsync();
-        Task<List<T>> GetAllAsync(Expression<Func<T, bool>> where);
-        Task<bool> AnyAsync(Expression<Func<T, bool>> where);
+        /// <summary>
+        /// 查询数量
+        /// </summary>
+        /// <returns></returns>
+        int GetCount();
+
+        /// <summary>
+        /// 查询数量
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        int GetCount(Expression<Func<T, bool>> where);
 
         #region 分页
 
-        IEnumerable<T> PagedQuery(Expression<Func<T, bool>> where, Expression<Func<T, string>> orderby, string asc, int pageIndex, int pageSize);
-        IEnumerable<T> PagedQuery(Expression<Func<T, bool>> where, Expression<Func<T, int?>> orderby, string asc, int pageIndex, int pageSize);
-        IEnumerable<T> PagedQuery(Expression<Func<T, bool>> where, Expression<Func<T, DateTime?>> orderby, string asc, int pageIndex, int pageSize);
-        IEnumerable<T> PagedQuery(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> orderby, string asc, int pageIndex, int pageSize);
-        IEnumerable<T> PagedQuery(Expression<Func<T, bool>> where, Expression<Func<T, bool?>> orderby, string asc, int pageIndex, int pageSize);
-
-        Task<List<T>> PagedQueryAsync(Expression<Func<T, bool>> where, Expression<Func<T, string>> orderby, string asc, int pageIndex, int pageSize);
-        Task<List<T>> PagedQueryAsync(Expression<Func<T, bool>> where, Expression<Func<T, int?>> orderby, string asc, int pageIndex, int pageSize);
-        Task<List<T>> PagedQueryAsync(Expression<Func<T, bool>> where, Expression<Func<T, DateTime?>> orderby, string asc, int pageIndex, int pageSize);
-        Task<List<T>> PagedQueryAsync(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> orderby, string asc, int pageIndex, int pageSize);
+        List<T> Load(Expression<Func<T, bool>> where, Expression<Func<T, string>> orderby, string asc, int pageIndex, int pageSize);
+        List<T> Load(Expression<Func<T, bool>> where, Expression<Func<T, int?>> orderby, string asc, int pageIndex, int pageSize);
+        List<T> Load(Expression<Func<T, bool>> where, Expression<Func<T, DateTime?>> orderby, string asc, int pageIndex, int pageSize);
+        List<T> Load(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> orderby, string asc, int pageIndex, int pageSize);
+        List<T> Load(Expression<Func<T, bool>> where, Expression<Func<T, bool?>> orderby, string asc, int pageIndex, int pageSize);
 
         #endregion
 
-        #region 查询实体数量
+        #region 求总计
 
-        int Count(Expression<Func<T, bool>> where);
-        Task<int> CountAsync(Expression<Func<T, bool>> where);
+        int? GetSum(Expression<Func<T, bool>> where, Expression<Func<T, int?>> sum);
+        double? GetSum(Expression<Func<T, bool>> where, Expression<Func<T, double?>> sum);
+        float? GetSum(Expression<Func<T, bool>> where, Expression<Func<T, float?>> sum);
+        decimal? GetSum(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> sum);
 
         #endregion
 
-        #region 求平均，求总计
+        #region 求平均
 
-        int? Sum(Expression<Func<T, bool>> where, Expression<Func<T, int?>> sum);
-        double? Sum(Expression<Func<T, bool>> where, Expression<Func<T, double?>> sum);
-        float? Sum(Expression<Func<T, bool>> where, Expression<Func<T, float?>> sum);
-        decimal? Sum(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> sum);
-        double? Avg(Expression<Func<T, bool>> where, Expression<Func<T, int?>> avg);
-        double? Avg(Expression<Func<T, bool>> where, Expression<Func<T, double?>> avg);
-        float? Avg(Expression<Func<T, bool>> where, Expression<Func<T, float?>> avg);
-        decimal? Avg(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> avg);
-
-        Task<int?> SumAsync(Expression<Func<T, bool>> where, Expression<Func<T, int?>> sum);
-        Task<double?> SumAsync(Expression<Func<T, bool>> where, Expression<Func<T, double?>> sum);
-        Task<float?> SumAsync(Expression<Func<T, bool>> where, Expression<Func<T, float?>> sum);
-        Task<decimal?> SumAsync(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> sum);
-        Task<double?> AvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, int?>> avg);
-        Task<double?> AvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, double?>> avg);
-        Task<float?> AvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, float?>> avg);
-        Task<decimal?> AvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> avg);
+        double? GetAvg(Expression<Func<T, bool>> where, Expression<Func<T, int?>> avg);
+        double? GetAvg(Expression<Func<T, bool>> where, Expression<Func<T, double?>> avg);
+        float? GetAvg(Expression<Func<T, bool>> where, Expression<Func<T, float?>> avg);
+        decimal? GetAvg(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> avg);
 
         #endregion
 
         #region 查最大
 
-        int? Max(Expression<Func<T, int?>> max);
-        double? Max(Expression<Func<T, double?>> max);
-        decimal? Max(Expression<Func<T, decimal?>> max);
-        DateTime? Max(Expression<Func<T, DateTime?>> max);
-
-        Task<int?> MaxAsync(Expression<Func<T, int?>> max);
-        Task<double?> MaxAsync(Expression<Func<T, double?>> max);
-        Task<decimal?> MaxAsync(Expression<Func<T, decimal?>> max);
-        Task<DateTime?> MaxAsync(Expression<Func<T, DateTime?>> max);
+        int? GetMax(Expression<Func<T, int?>> max);
+        double? GetMax(Expression<Func<T, double?>> max);
+        decimal? GetMax(Expression<Func<T, decimal?>> max);
+        DateTime? GetMax(Expression<Func<T, DateTime?>> max);
 
         #endregion
+
+        #region 查最小
+
+        int? GetMin(Expression<Func<T, int?>> min);
+        double? GetMin(Expression<Func<T, double?>> min);
+        decimal? GetMin(Expression<Func<T, decimal?>> min);
+        DateTime? GetMin(Expression<Func<T, DateTime?>> min);
 
         #endregion
 
         #region SQL执行
 
-        void ExecuteSql(string sql, params object[] parameters);
-        List<T> QuerySql(string sql, params object[] parameters);
+        /// <summary>
+        /// 执行sql
+        /// </summary>
+        /// <param name="sql"></param>
+        void Execute(string sql);
+        void Execute(string sql, object parameters);
 
-        Task ExecuteSqlAsync(string sql, params object[] parameters);
-        Task<List<T>> QuerySqlAsync(string sql, params object[] parameters);
+        /// <summary>
+        /// 使用sql脚本查询实体列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        List<T> Query(string sql);
+        List<T> Query(string sql, object parameters);
+
+        #endregion
+
+        #endregion
+
+        #region 异步
+
+        /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        Task AddAsync(T entity);
+
+        /// <summary>
+        /// 批量新增
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        Task AddRangeAsync(List<T> entity);
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="where">实体</param>
+        /// <returns></returns>
+        Task<int> DeleteAsync(Expression<Func<T, bool>> where);
+
+        /// <summary>
+        /// 批量修改
+        /// </summary>
+        /// <param name="where"></param>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        Task<int> UpdateRangeAsync(Expression<Func<T, bool>> where, Expression<Func<T, T>> entity);
+
+        /// <summary>
+        /// 异步查询所有数据
+        /// </summary>
+        /// <returns></returns>
+        Task<IEnumerable<T>> GetAllAsync();
+
+        /// <summary>
+        /// 根据条件查询
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>> where);
+
+        /// <summary>
+        /// 根据条件查询
+        /// </summary>
+        /// <param name="where">lamda表达式</param>
+        /// <returns></returns>
+        Task<T?> GetEntityAsync(Expression<Func<T, bool>> where);
+
+        /// <summary>
+        /// 根据主键获取
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        Task<T?> FindAsync(object? key);
+
+        /// <summary>
+        /// 获取最大的一条数据
+        /// </summary>
+        /// <param name="order"></param>
+        /// <returns></returns>
+        Task<T?> GetMaxSortAsync(Expression<Func<T, int>> order);
+
+        /// <summary>
+        /// 获取最小的一条数据
+        /// </summary>
+        /// <param name="order"></param>
+        /// <returns></returns>
+        Task<T?> GetMinSortAsync(Expression<Func<T, int>> order);
+
+        /// <summary>
+        /// Any 查找数据判断数据是否存在
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        Task<bool> AnyAsync(Expression<Func<T, bool>> where);
+
+        /// <summary>
+        /// 查询数量
+        /// </summary>
+        /// <returns></returns>
+        Task<int> GetCountAsync();
+
+        /// <summary>
+        /// 查询数量
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        Task<int> GetCountAsync(Expression<Func<T, bool>> where);
+
+        #region 分页
+
+        Task<List<T>> LoadAsync(Expression<Func<T, bool>> where, Expression<Func<T, string>> orderby, string asc, int pageIndex, int pageSize);
+        Task<List<T>> LoadAsync(Expression<Func<T, bool>> where, Expression<Func<T, int?>> orderby, string asc, int pageIndex, int pageSize);
+        Task<List<T>> LoadAsync(Expression<Func<T, bool>> where, Expression<Func<T, DateTime?>> orderby, string asc, int pageIndex, int pageSize);
+        Task<List<T>> LoadAsync(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> orderby, string asc, int pageIndex, int pageSize);
+
+        #endregion
+
+        #region 求总计
+
+        Task<int?> GetSumAsync(Expression<Func<T, bool>> where, Expression<Func<T, int?>> sum);
+        Task<double?> GetSumAsync(Expression<Func<T, bool>> where, Expression<Func<T, double?>> sum);
+        Task<float?> GetSumAsync(Expression<Func<T, bool>> where, Expression<Func<T, float?>> sum);
+        Task<decimal?> GetSumAsync(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> sum);
+
+        #endregion
+
+        #region 求平均
+
+        Task<double?> GetAvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, int?>> avg);
+        Task<double?> GetAvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, double?>> avg);
+        Task<float?> GetAvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, float?>> avg);
+        Task<decimal?> GetAvgAsync(Expression<Func<T, bool>> where, Expression<Func<T, decimal?>> avg);
+
+        #endregion
+
+        #region 查最大
+
+        Task<int?> GetMaxAsync(Expression<Func<T, int?>> max);
+        Task<double?> GetMaxAsync(Expression<Func<T, double?>> max);
+        Task<decimal?> GetMaxAsync(Expression<Func<T, decimal?>> max);
+        Task<DateTime?> GetMaxAsync(Expression<Func<T, DateTime?>> max);
+
+        #endregion
+
+        #region 查最小
+
+        Task<int?> GetMinAsync(Expression<Func<T, int?>> min);
+        Task<double?> GetMinAsync(Expression<Func<T, double?>> min);
+        Task<decimal?> GetMinAsync(Expression<Func<T, decimal?>> min);
+        Task<DateTime?> GetMinAsync(Expression<Func<T, DateTime?>> min);
+
+        #endregion
+
+        #region SQL执行
+
+        /// <summary>
+        /// 异步执行sql
+        /// </summary>
+        /// <param name="sql"></param>
+        Task ExecuteAsync(string sql);
+        Task ExecuteAsync(string sql, object parameters);
+
+        /// <summary>
+        /// 使用sql脚本异步查询实体列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        Task<List<T>> QueryAsync(string sql);
+        Task<List<T>> QueryAsync(string sql, object parameters);
+
+        #endregion
 
         #endregion
     }

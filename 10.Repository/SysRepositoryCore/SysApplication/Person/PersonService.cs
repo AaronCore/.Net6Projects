@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
 using SysEntity;
-using SysEntityFrameworkCore;
 using SysRepository;
 
 namespace SysApplication.Person
@@ -16,12 +14,12 @@ namespace SysApplication.Person
         }
         public void Add(PersonEntity entity)
         {
-            _personRepository.Insert(entity);
+            _personRepository.Add(entity);
             _personRepository.Commit();
         }
         public List<PersonEntity> GetPersons()
         {
-            return _personRepository.GetAll();
+            return _personRepository.GetAll().ToList();
         }
     }
 }
