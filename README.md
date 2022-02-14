@@ -1,2 +1,2 @@
-# .Net5Projects
-.Net5技术总结
+# .Net6Projects
+.Net6技术总结
