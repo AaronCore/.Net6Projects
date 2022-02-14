@@ -3,13 +3,13 @@
 	<Import Project="..\..\common.props" />
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>VueAdmin.EntityFrameworkCore</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\VueAdmin.Domain\VueAdmin.Domain.csproj" />
-		<PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="4.3.3" />
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="5.1.3" />
 	</ItemGroup>
 
 </Project>

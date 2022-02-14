@@ -3,18 +3,18 @@
 	<Import Project="..\..\common.props" />
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>VueAdmin.WebApp</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.7">
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.2">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="4.3.3" />
-		<PackageReference Include="Volo.Abp.Identity.Domain" Version="4.3.3" />
-		<PackageReference Include="Volo.Abp.Autofac" Version="4.3.3" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="5.1.3" />
+		<PackageReference Include="Volo.Abp.Identity.Domain" Version="5.1.3" />
+		<PackageReference Include="Volo.Abp.Autofac" Version="5.1.3" />
 	</ItemGroup>
 
 	<ItemGroup>
