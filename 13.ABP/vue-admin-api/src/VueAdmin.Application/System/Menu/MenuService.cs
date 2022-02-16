@@ -32,13 +32,8 @@ namespace VueAdmin.Application.System.Menu
             var result = new ServiceResult<PagedList<MenuOut>>();
 
             var total = await _menuRepository.GetCountAsync();
-
-            Expression<Func<MenuEntity, bool>> where = e => true;
-            if (!string.IsNullOrWhiteSpace(query))
-            {
-                where = where.And(p => p.Name.Contains(query));
-            }
-            var menus = _menuRepository.Where(where).OrderByDescending(p => p.CreateTime).PageByIndex(pageIndex, pageSize);
+            var where = (await _menuRepository.GetQueryableAsync()).WhereIf(query.IsNotNullOrWhiteSpace(), p => p.Name.Contains(query)).OrderByDescending(p => p.CreateTime);
+            var menus = where.PageByIndex(pageIndex, pageSize);
             var list = ObjectMapper.Map<IEnumerable<MenuEntity>, IEnumerable<MenuOut>>(menus);
 
             result.IsSuccess(new PagedList<MenuOut>(total.TryToInt(), list.ToList()));

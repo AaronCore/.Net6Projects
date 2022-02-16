@@ -33,13 +33,8 @@ namespace VueAdmin.Application.System.Account
             var result = new ServiceResult<PagedList<AccountOut>>();
 
             var total = await _accountRepository.GetCountAsync();
-
-            Expression<Func<AccountEntity, bool>> where = e => true;
-            if (!string.IsNullOrWhiteSpace(query))
-            {
-                where = where.And(p => p.Account.Contains(query));
-            }
-            var roles = _accountRepository.Where(where).OrderByDescending(p => p.CreateTime).PageByIndex(pageIndex, pageSize);
+            var where = (await _accountRepository.GetQueryableAsync()).WhereIf(query.IsNotNullOrWhiteSpace(), p => p.Account.Contains(query)).OrderByDescending(p => p.CreateTime);
+            var roles = where.PageByIndex(pageIndex, pageSize);
             var list = ObjectMapper.Map<IEnumerable<AccountEntity>, IEnumerable<AccountOut>>(roles);
 
             result.IsSuccess(new PagedList<AccountOut>(total.TryToInt(), list.ToList()));
@@ -128,7 +123,7 @@ namespace VueAdmin.Application.System.Account
         {
             var result = new ServiceResult<RoleOut>();
 
-            var roles = _accountRepository.Where(p => ids.Contains(p.Id.ToString())).ToList();
+            var roles = await _accountRepository.GetListAsync(p => ids.Contains(p.Id.ToString()));
             foreach (var item in roles)
             {
                 item.Enabled = !item.Enabled;
