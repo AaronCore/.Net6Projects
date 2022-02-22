@@ -8,16 +8,15 @@ namespace EasyStore.ConsoleApp
 {
     public class EasyStoreConsoleAppHostedService : IHostedService
     {
-        private IAbpApplicationWithInternalServiceProvider _abpApplication;
+        private IAbpApplicationWithInternalServiceProvider _abpApplication = null!;
 
         private readonly IConfiguration _configuration;
         private readonly IHostEnvironment _hostEnvironment;
 
-        public EasyStoreConsoleAppHostedService(IConfiguration configuration, IHostEnvironment hostEnvironment, IAbpApplicationWithInternalServiceProvider abpApplication)
+        public EasyStoreConsoleAppHostedService(IConfiguration configuration, IHostEnvironment hostEnvironment)
         {
             _configuration = configuration;
             _hostEnvironment = hostEnvironment;
-            _abpApplication = abpApplication;
         }
 
         public async Task StartAsync(CancellationToken cancellationToken)

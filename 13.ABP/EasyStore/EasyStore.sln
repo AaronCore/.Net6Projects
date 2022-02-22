@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyStore.Application", "Ea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyStore.EntityFrameworkCore", "EasyStore.EntityFrameworkCore\EasyStore.EntityFrameworkCore.csproj", "{47ADC38E-8606-40CD-B94D-979F52D40E12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyStore.ConsoleApp", "EasyStore.ConsoleApp\EasyStore.ConsoleApp.csproj", "{639E4F4E-2F8D-44E0-AF5A-0E9AC36F87F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyStore.ConsoleApp", "EasyStore.ConsoleApp\EasyStore.ConsoleApp.csproj", "{639E4F4E-2F8D-44E0-AF5A-0E9AC36F87F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "控制台", "控制台", "{35751EA4-AC63-415D-B251-7DD241E6616C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +44,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{639E4F4E-2F8D-44E0-AF5A-0E9AC36F87F3} = {35751EA4-AC63-415D-B251-7DD241E6616C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2BB2DBB-E600-4B70-9ACB-371CC2630883}
