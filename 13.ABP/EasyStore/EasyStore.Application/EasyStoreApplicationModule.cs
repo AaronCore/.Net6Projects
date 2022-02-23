@@ -7,9 +7,9 @@ using Volo.Abp.Modularity;
 namespace EasyStore.Application
 {
     [DependsOn(
+        typeof(EasyStoreEntityFrameworkCoreModule),
         typeof(AbpDddApplicationModule),
-        typeof(AbpAutoMapperModule),
-        typeof(EasyStoreEntityFrameworkCoreModule)
+        typeof(AbpAutoMapperModule)
         )]
     public class EasyStoreApplicationModule : AbpModule
     {
