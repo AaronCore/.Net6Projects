@@ -35,7 +35,7 @@ namespace EasyStore.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUser(string name)
         {
-            var user = await _userService.GetUser("jack");
+            var user = await _userService.GetUser(name);
             return Json(user);
         }
 
